@@ -1,0 +1,14 @@
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    volumes:
+      - /home/micjcameron/homeassistant:/config
+    devices:
+      - /dev/serial/by-id/usb-Itead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_V2_0aae22d4de2bef11a0025a88dfbc56eb-if00-port0:/dev/ttyUSB0
