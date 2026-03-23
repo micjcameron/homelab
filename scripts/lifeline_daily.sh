@@ -40,12 +40,12 @@ if [ -f "$SERVICES_JSON" ] && command -v jq >/dev/null 2>&1; then
     COMPOSE_FILE="$STACKS_DIR/$SERVICE/docker-compose.yml"
 
     if [ ! -f "$COMPOSE_FILE" ]; then
-      EXPECTED_STATUS="${EXPECTED_STATUS}- ${SERVICE}: compose file missing\n"
+      EXPECTED_STATUS="${EXPECTED_STATUS}- ${SERVICE}: compose file missing"$'\n'
       continue
     fi
 
     if ! $DOCKER inspect "$SERVICE" >/dev/null 2>&1; then
-      EXPECTED_STATUS="${EXPECTED_STATUS}- ${SERVICE}: missing container\n"
+      EXPECTED_STATUS="${EXPECTED_STATUS}- ${SERVICE}: missing container"$'\n'
       continue
     fi
 
@@ -53,9 +53,9 @@ if [ -f "$SERVICES_JSON" ] && command -v jq >/dev/null 2>&1; then
     HEALTH=$($DOCKER inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$SERVICE" 2>/dev/null || echo "unknown")
 
     if [ "$HEALTH" = "none" ]; then
-      EXPECTED_STATUS="${EXPECTED_STATUS}- ${SERVICE}: ${STATE}\n"
+      EXPECTED_STATUS="${EXPECTED_STATUS}- ${SERVICE}: ${STATE}"$'\n'
     else
-      EXPECTED_STATUS="${EXPECTED_STATUS}- ${SERVICE}: ${STATE} (health: ${HEALTH})\n"
+      EXPECTED_STATUS="${EXPECTED_STATUS}- ${SERVICE}: ${STATE} (health: ${HEALTH})"$'\n'
     fi
   done < <(jq -r '.services | sort_by(.order)[] | select(.enabled == true) | .name' "$SERVICES_JSON")
 else
