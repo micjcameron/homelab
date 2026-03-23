@@ -1,0 +1,15 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      TZ: Europe/Amsterdam
+      WEBPASSWORD: yourpassword
+      DNSMASQ_LISTENING: all
+      INTERFACE: eth0
+      IPv6: "false"
+    volumes:
+      - /home/micjcameron/etc-pihole:/etc/pihole
+      - /home/micjcameron/etc-dnsmasq.d:/etc/dnsmasq.d
