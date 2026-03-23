@@ -1,0 +1,6 @@
+NAMES           IMAGE                                                     STATUS
+matter-server   ghcr.io/home-assistant-libs/python-matter-server:stable   Up 38 hours
+pihole          pihole/pihole:latest                                      Up 38 hours (healthy)
+mosquitto       eclipse-mosquitto                                         Up 38 hours
+homeassistant   ghcr.io/home-assistant/home-assistant:stable              Up 38 hours
+zigbee2mqtt     koenkk/zigbee2mqtt                                        Up 38 hours

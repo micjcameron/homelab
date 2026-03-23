@@ -1,0 +1,256 @@
+[
+    {
+        "Id": "c18388da6b9bb3c6c7ba851a70651afc337a272d21a87611f71af55c9189b5c9",
+        "Created": "2025-09-11T19:43:41.873636293Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "/sbin/tini",
+            "--",
+            "node",
+            "index.js"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1989,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-03-22T06:28:03.288071086Z",
+            "FinishedAt": "2026-03-22T06:28:02.074004069Z"
+        },
+        "Image": "sha256:c35656ae504f3e14b568ee95ee2eb89a95b215671134153c9063da484f1301c1",
+        "ResolvConfPath": "/var/lib/docker/containers/c18388da6b9bb3c6c7ba851a70651afc337a272d21a87611f71af55c9189b5c9/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/c18388da6b9bb3c6c7ba851a70651afc337a272d21a87611f71af55c9189b5c9/hostname",
+        "HostsPath": "/var/lib/docker/containers/c18388da6b9bb3c6c7ba851a70651afc337a272d21a87611f71af55c9189b5c9/hosts",
+        "LogPath": "/var/lib/docker/containers/c18388da6b9bb3c6c7ba851a70651afc337a272d21a87611f71af55c9189b5c9/c18388da6b9bb3c6c7ba851a70651afc337a272d21a87611f71af55c9189b5c9-json.log",
+        "Name": "/zigbee2mqtt",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/micjcameron/zigbee2mqtt/data:/app/data:rw",
+                "/run/udev:/run/udev:ro"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "host",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [
+                {
+                    "PathOnHost": "/dev/ttyUSB0",
+                    "PathInContainer": "/dev/ttyUSB0",
+                    "CgroupPermissions": "rwm"
+                }
+            ],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "c18388da6b9bb3c6c7ba851a70651afc337a272d21a87611f71af55c9189b5c9",
+                "LowerDir": "/var/lib/docker/overlay2/f40e3b64db5a963b7989c18953b8f90e7ec76af966774c0f3acdd06182a33bf8-init/diff:/var/lib/docker/overlay2/0067952f8f94c55fd30fb6ba141348acea3a25f2f47485a8a334d041e3e9799c/diff:/var/lib/docker/overlay2/281933d1fc4d697bbdf38b5bbe0a9cad1b36366c7ea300d2bf65b885b48da6f8/diff:/var/lib/docker/overlay2/763bf1fe6a3d015bcf1fae2bb122cc4e964bdeadcd4128fb364ee6d46f721e95/diff:/var/lib/docker/overlay2/c85122d7db8cf0475eea3ce7b472b6e2a4206f44064e764e5ab92feee89e361e/diff:/var/lib/docker/overlay2/809e98e4c95d43725adccce8a7f19efa9a1a3a35c82a32c20b0464f22148341a/diff:/var/lib/docker/overlay2/20dc2a819f9447960fd6202844d43b57ee2c9415186d75b5f81d6c55410b40e4/diff:/var/lib/docker/overlay2/4275c5b1ea2479382a3eccae9d5a23ca3cc15fc89fa47b1c3348ad92b5a37eac/diff:/var/lib/docker/overlay2/e72a19752ee9e2cc64af68ca339f7a6b2fe197b828276cecad398cc49a68c3b1/diff:/var/lib/docker/overlay2/3f1e52344c6d424c82f0db6ca91064026b47fa54d1b0b97560edd255adceae68/diff:/var/lib/docker/overlay2/23ea4466e8e04aa900fc8c85a1c9d5c5d5c78cec2f3ef4bfe6e8b0d986f4bfd0/diff",
+                "MergedDir": "/var/lib/docker/overlay2/f40e3b64db5a963b7989c18953b8f90e7ec76af966774c0f3acdd06182a33bf8/merged",
+                "UpperDir": "/var/lib/docker/overlay2/f40e3b64db5a963b7989c18953b8f90e7ec76af966774c0f3acdd06182a33bf8/diff",
+                "WorkDir": "/var/lib/docker/overlay2/f40e3b64db5a963b7989c18953b8f90e7ec76af966774c0f3acdd06182a33bf8/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/micjcameron/zigbee2mqtt/data",
+                "Destination": "/app/data",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/run/udev",
+                "Destination": "/run/udev",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "raspberrypi",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_ENV=production"
+            ],
+            "Cmd": [
+                "/sbin/tini",
+                "--",
+                "node",
+                "index.js"
+            ],
+            "Image": "koenkk/zigbee2mqtt",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "3e991f2d819b112ea869023b8a1b2ca2deeb5accca52ad5614df698fbd5ce195",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:c35656ae504f3e14b568ee95ee2eb89a95b215671134153c9063da484f1301c1",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "zigbee2mqtt",
+                "com.docker.compose.project.config_files": "/home/micjcameron/zigbee2mqtt/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/home/micjcameron/zigbee2mqtt",
+                "com.docker.compose.service": "zigbee2mqtt",
+                "com.docker.compose.version": "2.39.2",
+                "org.opencontainers.image.authors": "Koen Kanters",
+                "org.opencontainers.image.created": "2025-09-01T17:47:30Z",
+                "org.opencontainers.image.description": "Zigbee to MQTT bridge using Zigbee-herdsman",
+                "org.opencontainers.image.documentation": "https://www.zigbee2mqtt.io/",
+                "org.opencontainers.image.licenses": "GPL-3.0",
+                "org.opencontainers.image.source": "https://github.com/Koenkk/zigbee2mqtt",
+                "org.opencontainers.image.title": "Zigbee2MQTT",
+                "org.opencontainers.image.url": "https://github.com/Koenkk/zigbee2mqtt",
+                "org.opencontainers.image.version": "2.6.1"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "f0a55aac49b04370c8d7c8f33d92728b17e51dcd3b2f76c66b95a4ed09cf321b",
+            "SandboxKey": "/var/run/docker/netns/default",
+            "Ports": {},
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "host": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "MacAddress": "",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "36698691419fba312538c5890aaae3f742030627adda0dd0a1958e383f39a5a3",
+                    "EndpointID": "616c104d2f8e9106b50d1b8e9ce67c32fa6218142668d84bb6c5b1749454c3ee",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        }
+    }
+]

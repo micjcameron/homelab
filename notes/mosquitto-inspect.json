@@ -1,0 +1,268 @@
+[
+    {
+        "Id": "9a94732b026646c358963c207b585b8f0a9f4ff8e7a60d249550e1078f4029c5",
+        "Created": "2025-09-13T12:08:43.735520767Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "/usr/sbin/mosquitto",
+            "-c",
+            "/mosquitto/config/mosquitto.conf"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1991,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-03-22T06:28:03.271206086Z",
+            "FinishedAt": "2026-03-22T06:28:02.07624918Z"
+        },
+        "Image": "sha256:4ba2c818548179c85b6089dec11fc1aa9bf833e964926a427c85909ac7587ccc",
+        "ResolvConfPath": "/var/lib/docker/containers/9a94732b026646c358963c207b585b8f0a9f4ff8e7a60d249550e1078f4029c5/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/9a94732b026646c358963c207b585b8f0a9f4ff8e7a60d249550e1078f4029c5/hostname",
+        "HostsPath": "/var/lib/docker/containers/9a94732b026646c358963c207b585b8f0a9f4ff8e7a60d249550e1078f4029c5/hosts",
+        "LogPath": "/var/lib/docker/containers/9a94732b026646c358963c207b585b8f0a9f4ff8e7a60d249550e1078f4029c5/9a94732b026646c358963c207b585b8f0a9f4ff8e7a60d249550e1078f4029c5-json.log",
+        "Name": "/mosquitto",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/micjcameron/mosquitto/data:/mosquitto/data",
+                "/home/micjcameron/mosquitto/log:/mosquitto/log",
+                "/home/micjcameron/mosquitto/config:/mosquitto/config"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "bridge",
+            "PortBindings": {
+                "1883/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "1883"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                38,
+                126
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "9a94732b026646c358963c207b585b8f0a9f4ff8e7a60d249550e1078f4029c5",
+                "LowerDir": "/var/lib/docker/overlay2/da60070d34aa2b953d1519be826d5c3de4df8391f6c36e9f48da4f00ddf90f73-init/diff:/var/lib/docker/overlay2/96e01dcd3062a0b6a2a60d6910d5ce6dbbc4cd25883d6bef91ab6781aa849b36/diff:/var/lib/docker/overlay2/6c3349218bf762538c3a79ac4f65b3d884125e2f6b10a0b778e5991f3e8abd9c/diff:/var/lib/docker/overlay2/23ea4466e8e04aa900fc8c85a1c9d5c5d5c78cec2f3ef4bfe6e8b0d986f4bfd0/diff",
+                "MergedDir": "/var/lib/docker/overlay2/da60070d34aa2b953d1519be826d5c3de4df8391f6c36e9f48da4f00ddf90f73/merged",
+                "UpperDir": "/var/lib/docker/overlay2/da60070d34aa2b953d1519be826d5c3de4df8391f6c36e9f48da4f00ddf90f73/diff",
+                "WorkDir": "/var/lib/docker/overlay2/da60070d34aa2b953d1519be826d5c3de4df8391f6c36e9f48da4f00ddf90f73/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/micjcameron/mosquitto/config",
+                "Destination": "/mosquitto/config",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/micjcameron/mosquitto/data",
+                "Destination": "/mosquitto/data",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/micjcameron/mosquitto/log",
+                "Destination": "/mosquitto/log",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "9a94732b0266",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "1883/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "VERSION=2.0.22",
+                "DOWNLOAD_SHA256=2f752589ef7db40260b633fbdb536e9a04b446a315138d64a7ff3c14e2de6b68",
+                "GPG_KEYS=A0D6EEA1DCAE49A635A3B2F0779B22DFB3E717B7",
+                "LWS_VERSION=4.2.1",
+                "LWS_SHA256=842da21f73ccba2be59e680de10a8cce7928313048750eb6ad73b6fa50763c51"
+            ],
+            "Cmd": [
+                "/usr/sbin/mosquitto",
+                "-c",
+                "/mosquitto/config/mosquitto.conf"
+            ],
+            "Image": "eclipse-mosquitto",
+            "Volumes": {
+                "/mosquitto/data": {},
+                "/mosquitto/log": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "description": "Eclipse Mosquitto MQTT Broker",
+                "maintainer": "Roger Light <roger@atchoo.org>"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "3ff97e56ba760eb0d9f32c70db97029d00c2a9932e1081c713f58d2c0fe08a3d",
+            "SandboxKey": "/var/run/docker/netns/3ff97e56ba76",
+            "Ports": {
+                "1883/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "1883"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "1883"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "de1a16daf2a4db010dd37695c3e6fe13a14e05fe36e721ddea94162be8f0a41b",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "32:2b:3b:d7:ff:b3",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "MacAddress": "32:2b:3b:d7:ff:b3",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "a212c1e2d6777721ad72e7af9999c2276193299050167b6164f8ea7a35a847ab",
+                    "EndpointID": "de1a16daf2a4db010dd37695c3e6fe13a14e05fe36e721ddea94162be8f0a41b",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        }
+    }
+]

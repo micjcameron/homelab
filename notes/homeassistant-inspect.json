@@ -1,0 +1,228 @@
+[
+    {
+        "Id": "943b04c892c036ca8f8f06986c045d03a3891d184455851be67915a6b46f649e",
+        "Created": "2025-09-11T19:49:47.643440052Z",
+        "Path": "/init",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1990,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-03-22T06:28:03.406317679Z",
+            "FinishedAt": "2026-03-22T06:28:02.073868402Z"
+        },
+        "Image": "sha256:76a2a3fd5357050d79cf9807d07f37f5370e4bbb6e74928a73f94c5a08909c2f",
+        "ResolvConfPath": "/var/lib/docker/containers/943b04c892c036ca8f8f06986c045d03a3891d184455851be67915a6b46f649e/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/943b04c892c036ca8f8f06986c045d03a3891d184455851be67915a6b46f649e/hostname",
+        "HostsPath": "/var/lib/docker/containers/943b04c892c036ca8f8f06986c045d03a3891d184455851be67915a6b46f649e/hosts",
+        "LogPath": "/var/lib/docker/containers/943b04c892c036ca8f8f06986c045d03a3891d184455851be67915a6b46f649e/943b04c892c036ca8f8f06986c045d03a3891d184455851be67915a6b46f649e-json.log",
+        "Name": "/homeassistant",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/micjcameron/homeassistant:/config"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "host",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                38,
+                126
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [
+                "8.8.8.8",
+                "1.1.1.1"
+            ],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": true,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": [
+                "label=disable"
+            ],
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [
+                {
+                    "PathOnHost": "/dev/serial/by-id/usb-Itead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_V2_0aae22d4de2bef11a0025a88dfbc56eb-if00-port0",
+                    "PathInContainer": "/dev/ttyUSB0",
+                    "CgroupPermissions": "rwm"
+                }
+            ],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": null,
+            "ReadonlyPaths": null
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "943b04c892c036ca8f8f06986c045d03a3891d184455851be67915a6b46f649e",
+                "LowerDir": "/var/lib/docker/overlay2/1a2d16cb93da944e9aa4faafc0102c27f415c7baf3acd5011215ef381d3d11ab-init/diff:/var/lib/docker/overlay2/44213b2a480b09bd2a2cc6a0d66f5f69dbc09569b7116dcada2ec16984697b5f/diff:/var/lib/docker/overlay2/ecb35715ffeb4102477f89c599f6b6ee21f02911442ec28cd0d09c41d2d17b91/diff:/var/lib/docker/overlay2/9ee6eeb60afa89d5d98e6f311be45abb0eb12611cebce977e32480ca3b86133d/diff:/var/lib/docker/overlay2/1359b2d545f720584fbdba6ce5ee46f363b399603e8dd9b7dc6872b9d6082c0c/diff:/var/lib/docker/overlay2/b383ff76eec81e821de910db24db063fd81af3a4d60adaaeb17437d47c882921/diff:/var/lib/docker/overlay2/3185d9d24860a31a923b07e9842d2b64be8abb834cb2c254dc25476610ac4f7b/diff:/var/lib/docker/overlay2/87fc1031fa219fdfc03d4638deed2ed52c816432d389b8796926bcd5bd81c5fa/diff:/var/lib/docker/overlay2/16201762d2e6c5d17be9bc8fb5ad259cdd30a6cfca92fc0ccd00227f6957600e/diff:/var/lib/docker/overlay2/206e453f52a430c0ae62aac463daa1bc4ef3e99212588ce32225137c03f014cd/diff:/var/lib/docker/overlay2/ca11ea29441c64fc378dbf675c831c7c6fcc3a71c4e7225db57ac18c484cb435/diff:/var/lib/docker/overlay2/5fe5731dd982095a48e6a01db050b12ffd39be5e94fad3143f6d7d2d0f7bc22d/diff:/var/lib/docker/overlay2/608fde90f6be533dfe6cb0277350d8b9b9712f032d05d59530277a4e2ef2fd88/diff:/var/lib/docker/overlay2/575525cb12302c7739c2ec4ef52542100491df70c9164203a9975585b34d7f20/diff:/var/lib/docker/overlay2/0ca51aa474399ffc9e1cb8bac69df5bb835ca434d0417164c455923708962c85/diff:/var/lib/docker/overlay2/175228eb5d738630e775c6518100d4ee437f0680bc7f2370893c9517ae0dd418/diff:/var/lib/docker/overlay2/028b08a26c33e2afca63d882429aff180e20877c1687d5fadc41ca47dfd8669e/diff:/var/lib/docker/overlay2/a73dc3c1ef14808d111914faff5428fe457a352d2d70c35f289992d5de0a7a1d/diff:/var/lib/docker/overlay2/ffb35d9f56b93333b74f24a381500756861eaed7c3a5d44b87fc8fd8f69a563c/diff:/var/lib/docker/overlay2/e446d8da18aafcfcd4e97aba0cf17256a53325dafee0cad2dbd56e8ace498d4d/diff:/var/lib/docker/overlay2/3d8a7bde0ac49a306e14e4e81052317438373d08bd5d193a547a7739a75e877c/diff:/var/lib/docker/overlay2/7cb1b57dc4e6206b31cd99ca1d39aaffaf2248d68fb212443412db9b459a5b1e/diff:/var/lib/docker/overlay2/8f0030b95e28d07cb68adddf874ba2b9481ecb3983d9b26e70830bdea837e898/diff:/var/lib/docker/overlay2/951fa021c5dbcb7023926561adffb093fec2484bc9f0c8ec305cd38b483d38d9/diff:/var/lib/docker/overlay2/37d2cd71bdbd3d2d56d8fb6caba8f718eac08b0d427478f3bf129350ef5a7fcd/diff:/var/lib/docker/overlay2/dd5cc2b605d94a2e5ccff5bb9caa6dd4f02a872fb7133a526206df48d8a3383d/diff:/var/lib/docker/overlay2/a3b6a236ecc884e40ce9ee2588a2015dc04a67bbd447655de8cfcb0614073d08/diff:/var/lib/docker/overlay2/932dfced05f51afa04918a8b52beb64e4b4457eb9b5dd00332b5b638779475fd/diff:/var/lib/docker/overlay2/ef50e985bee40cf01751fdb2e8243906431d400993827b6102f4f8e44b4ae04d/diff:/var/lib/docker/overlay2/94625fe5024bd67a79ac50d8ee9779474b0bd5e0c4b049924f4a71e58c1cfa46/diff:/var/lib/docker/overlay2/aae9d1674898f5ffcc78a6e6e7ec7d71841880bd8e9b338a2ebfc39ae56c7418/diff:/var/lib/docker/overlay2/d261c3137127a93689a63345f531e465f62b7d29a548fdf8db47d8ca74e5a38d/diff:/var/lib/docker/overlay2/08f02b19a531bce541a4ac386a32b4b8ca223b26995216633719e793030d9334/diff:/var/lib/docker/overlay2/e5636f735e1924c757af69d14474baa72731ecc3071d7963f98eb427463f1ffe/diff",
+                "MergedDir": "/var/lib/docker/overlay2/1a2d16cb93da944e9aa4faafc0102c27f415c7baf3acd5011215ef381d3d11ab/merged",
+                "UpperDir": "/var/lib/docker/overlay2/1a2d16cb93da944e9aa4faafc0102c27f415c7baf3acd5011215ef381d3d11ab/diff",
+                "WorkDir": "/var/lib/docker/overlay2/1a2d16cb93da944e9aa4faafc0102c27f415c7baf3acd5011215ef381d3d11ab/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/micjcameron/homeassistant",
+                "Destination": "/config",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "raspberrypi",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "S6_BEHAVIOUR_IF_STAGE2_FAILS=2",
+                "S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0",
+                "S6_CMD_WAIT_FOR_SERVICES=1",
+                "S6_SERVICES_READYTIME=50",
+                "UV_EXTRA_INDEX_URL=https://wheels.home-assistant.io/musllinux-index/",
+                "S6_SERVICES_GRACETIME=240000",
+                "UV_SYSTEM_PYTHON=true",
+                "UV_NO_CACHE=true"
+            ],
+            "Cmd": null,
+            "Image": "ghcr.io/home-assistant/home-assistant:stable",
+            "Volumes": null,
+            "WorkingDir": "/config",
+            "Entrypoint": [
+                "/init"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "io.hass.arch": "aarch64",
+                "io.hass.base.arch": "aarch64",
+                "io.hass.base.image": "ghcr.io/home-assistant/aarch64-base:3.21",
+                "io.hass.base.name": "python",
+                "io.hass.base.version": "2025.05.0",
+                "io.hass.type": "core",
+                "io.hass.version": "2025.8.3",
+                "org.opencontainers.image.authors": "The Home Assistant Authors",
+                "org.opencontainers.image.created": "2025-08-21 18:29:09+00:00",
+                "org.opencontainers.image.description": "Open-source home automation platform running on Python 3",
+                "org.opencontainers.image.documentation": "https://www.home-assistant.io/docs/",
+                "org.opencontainers.image.licenses": "Apache-2.0",
+                "org.opencontainers.image.source": "https://github.com/home-assistant/core",
+                "org.opencontainers.image.title": "Home Assistant",
+                "org.opencontainers.image.url": "https://www.home-assistant.io/",
+                "org.opencontainers.image.version": "2025.8.3"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "e163e1c19edc85037edef12a5f5ff6442b1e32fe34867930ee3e2db1c17ef6d2",
+            "SandboxKey": "/var/run/docker/netns/default",
+            "Ports": {},
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "host": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "MacAddress": "",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "36698691419fba312538c5890aaae3f742030627adda0dd0a1958e383f39a5a3",
+                    "EndpointID": "b63acd9b09ff1317e85492cf996dfc288ab1f58c2f89505795f2af0e9aea63ab",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        }
+    }
+]

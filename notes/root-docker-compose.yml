@@ -1,0 +1,50 @@
+version: "3.9"
+
+networks:
+  hass-net:
+    driver: bridge
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: mosquitto
+    restart: unless-stopped
+    networks:
+      - hass-net
+    ports:
+      - "1883:1883"
+      - "9001:9001" # optional WebSocket
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt
+    container_name: zigbee2mqtt
+    restart: unless-stopped
+    networks:
+      - hass-net
+    volumes:
+      - ./zigbee2mqtt/data:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    environment:
+      - TZ=Europe/Amsterdam
+    depends_on:
+      - mosquitto
+
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: homeassistant
+    restart: unless-stopped
+    networks:
+      - hass-net
+    privileged: true
+    volumes:
+      - ./homeassistant:/config
+    devices:
+      - /dev/serial/by-id/usb-Itead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_V2_0aae22d4de2bef11a0025a88dfbc56eb-if00-port0:/dev/ttyUSB0
+    environment:
+      - TZ=Europe/Amsterdam
