@@ -1,0 +1,36 @@
+{
+    "services": [
+      {
+        "name": "matter-server",
+        "enabled": true,
+        "order": 10
+      },
+      {
+        "name": "mosquitto",
+        "enabled": true,
+        "order": 20
+      },
+      {
+        "name": "zigbee2mqtt",
+        "enabled": true,
+        "order": 30,
+        "special_check": "zigbee_bridge"
+      },
+      {
+        "name": "homeassistant",
+        "enabled": true,
+        "order": 40
+      },
+      {
+        "name": "pihole",
+        "enabled": true,
+        "order": 50,
+        "special_check": "pihole_dns"
+      },
+      {
+        "name": "node-red",
+        "enabled": true,
+        "order": 60
+      }
+    ]
+  }
