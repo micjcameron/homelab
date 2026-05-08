@@ -1,0 +1,6 @@
+# Homelab crontab — managed by cron/install.sh
+# m h  dom mon dow   command
+
+*/5 * * * * /home/micjcameron/homelab/home-automation/scripts/lifeline.sh >> /home/micjcameron/lifeline.log 2>&1
+0 10 * * *  /home/micjcameron/homelab/home-automation/scripts/lifeline_daily.sh >> /home/micjcameron/lifeline.log 2>&1
+0 7,13,17 * * * /home/micjcameron/homelab/personal-scripts/parent-reminder/parent-reminder.sh >> /home/micjcameron/parent-reminder.log 2>&1
