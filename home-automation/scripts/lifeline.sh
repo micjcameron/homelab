@@ -2,9 +2,9 @@
 set -u
 
 LOGFILE="$HOME/lifeline.log"
-STACKS_DIR="$HOME/homelab/stacks"
-SERVICES_JSON="$HOME/homelab/services.json"
-MANAGE_SCRIPT="$HOME/homelab/scripts/manage.sh"
+STACKS_DIR="$HOME/homelab/home-automation/stacks"
+SERVICES_JSON="$HOME/homelab/home-automation/services.json"
+MANAGE_SCRIPT="$HOME/homelab/home-automation/scripts/manage.sh"
 
 BOT_TOKEN="8396572586:AAEpLuUDbZr0Z_XpdSlRFQ8nveFaxTAR-Lk"
 CHAT_ID="8588606286"

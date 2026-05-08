@@ -5,8 +5,8 @@ BOT_TOKEN="8396572586:AAEpLuUDbZr0Z_XpdSlRFQ8nveFaxTAR-Lk"
 CHAT_ID="8588606286"
 
 HOST=$(hostname)
-SERVICES_JSON="$HOME/homelab/services.json"
-STACKS_DIR="$HOME/homelab/stacks"
+SERVICES_JSON="$HOME/homelab/home-automation/services.json"
+STACKS_DIR="$HOME/homelab/home-automation/stacks"
 
 TEMP="n/a"
 if command -v vcgencmd >/dev/null 2>&1; then

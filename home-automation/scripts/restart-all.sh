@@ -12,6 +12,6 @@ for s in "${SERVICES[@]}"; do
   echo "===================="
   echo "Restarting $s"
   echo "===================="
-  ~/homelab/scripts/manage.sh $s
+  ~/homelab/home-automation/scripts/manage.sh $s
   sleep 3
 done

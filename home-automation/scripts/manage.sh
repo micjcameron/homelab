@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-STACKS_DIR="$HOME/homelab/stacks"
-SERVICES_JSON="$HOME/homelab/services.json"
+STACKS_DIR="$HOME/homelab/home-automation/stacks"
+SERVICES_JSON="$HOME/homelab/home-automation/services.json"
 
 run_service() {
   local SERVICE="$1"
