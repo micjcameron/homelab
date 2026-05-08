@@ -1,0 +1,20 @@
+# Home Assistant — keep secrets and runtime state out of git
+home-automation/homeassistant-config/secrets.yaml
+home-automation/homeassistant-config/.storage/
+home-automation/homeassistant-config/.storage.bak*
+
+# Auto-generated runtime files (not hand-edited, would only churn the repo)
+home-automation/homeassistant-config/*.db
+home-automation/homeassistant-config/*.db-*
+home-automation/homeassistant-config/*.log
+home-automation/homeassistant-config/*.log.*
+home-automation/homeassistant-config/.HA_VERSION
+home-automation/homeassistant-config/.uuid
+home-automation/homeassistant-config/.cloud/
+home-automation/homeassistant-config/deps/
+home-automation/homeassistant-config/tts/
+home-automation/homeassistant-config/backups/
+
+# Externally managed (HACS / community gallery)
+home-automation/homeassistant-config/custom_components/
+home-automation/homeassistant-config/blueprints/

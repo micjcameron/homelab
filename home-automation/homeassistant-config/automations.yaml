@@ -1,0 +1,36 @@
+- id: '1757506664118'
+  alias: Ring Motion Popup
+  description: Show live Ring camera popup when motion detected
+  triggers:
+  - entity_id: event.front_door_motion
+    from: 'off'
+    to: 'on'
+    trigger: state
+  conditions: []
+  actions:
+  - data:
+      title: Front Door Motion
+      card:
+        type: picture-entity
+        entity: camera.front_door_live_view
+        camera_view: live
+      deviceID:
+      - this
+    action: browser_mod.popup
+  - delay:
+      seconds: 10
+  - data:
+      deviceID:
+      - browser_mod_0b6a24d9_ba0dcfa6
+    action: browser_mod.close_popup
+  mode: single
+- id: '1758384034862'
+  alias: Bathroom Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.0xa4c1381dee848188_occupancy
+      light_target:
+        device_id: 26c713a7158e98804c88ab431ff71b51
+      no_motion_wait: 120
