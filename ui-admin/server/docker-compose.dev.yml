@@ -1,0 +1,18 @@
+# Local dev Postgres only (run: npm run start:stack:local). The Nest app runs on
+# the host via npm run start:local and connects to localhost:5432.
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: ui-admin-db-dev
+    environment:
+      POSTGRES_USER: ${DB_USER:-uiadmin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-uiadmin}
+      POSTGRES_DB: ${DB_NAME:-uiadmin}
+    ports:
+      # 55432 on the host to avoid clashing with a native Postgres on 5432
+      - "55432:5432"
+    volumes:
+      - ui_admin_pg_dev:/var/lib/postgresql/data
+
+volumes:
+  ui_admin_pg_dev:

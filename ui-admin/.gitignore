@@ -1,0 +1,14 @@
+# deps & build output
+node_modules/
+dist/
+server/public/
+*.tsbuildinfo
+
+# env (secrets)
+.env
+.env.*
+!.env.example
+
+# logs
+logs/
+*.log
