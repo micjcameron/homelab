@@ -1,0 +1,24 @@
+[
+  {
+    "attributes": {
+      "current": 0,
+      "friendly_name": "Bathroom Light",
+      "id": "1758384034862",
+      "last_triggered": "2026-06-03T07:02:13.631116+00:00",
+      "mode": "restart"
+    },
+    "entity_id": "automation.bathroom_light",
+    "state": "on"
+  },
+  {
+    "attributes": {
+      "current": 0,
+      "friendly_name": "Ring Motion Popup",
+      "id": "1757506664118",
+      "last_triggered": "2025-09-10T12:33:00.410386+00:00",
+      "mode": "single"
+    },
+    "entity_id": "automation.ring_motion_popup",
+    "state": "on"
+  }
+]

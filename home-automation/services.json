@@ -8,7 +8,8 @@
       {
         "name": "mosquitto",
         "enabled": true,
-        "order": 20
+        "order": 20,
+        "log_file": "mosquitto/log/mosquitto.log"
       },
       {
         "name": "zigbee2mqtt",
@@ -31,6 +32,11 @@
         "name": "node-red",
         "enabled": true,
         "order": 60
+      },
+      {
+        "name": "ui-admin",
+        "enabled": true,
+        "order": 70
       }
     ]
   }

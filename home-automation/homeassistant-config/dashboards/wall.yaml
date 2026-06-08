@@ -1,0 +1,165 @@
+# Wall / kiosk dashboard — authored in the repo, deployed as a YAML-mode dashboard.
+# Built-in cards only (no custom/HACS cards), so it renders everywhere.
+# Edit here -> ./home-automation/scripts/ha-deploy.sh -> changes appear on HA.
+title: Home
+views:
+  # ─────────────────────────────────────────────────────────── Overview
+  - title: Home
+    path: home
+    icon: mdi:home
+    type: sections
+    max_columns: 3
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Welcome home
+            heading_style: title
+          - type: weather-forecast
+            entity: weather.forecast_home
+            show_current: true
+            show_forecast: true
+            forecast_type: daily
+          - type: tile
+            entity: person.michael_cameron
+            name: Michael
+
+      - type: grid
+        cards:
+          - type: heading
+            heading: Climate
+            icon: mdi:thermostat
+          - type: thermostat
+            entity: climate.smart_thermostat_x
+            name: Lounge
+
+      - type: grid
+        cards:
+          - type: heading
+            heading: Bin day
+            icon: mdi:trash-can
+          - type: tile
+            entity: sensor.restafval
+            name: Restafval
+            icon: mdi:trash-can-outline
+          - type: tile
+            entity: sensor.avri_avri_waste_gft
+            name: GFT (green)
+            icon: mdi:leaf
+          - type: tile
+            entity: sensor.avri_avri_waste_pmd
+            name: PMD (plastic)
+            icon: mdi:bottle-soda-classic-outline
+          - type: tile
+            entity: sensor.papier
+            name: Papier
+            icon: mdi:newspaper
+
+  # ─────────────────────────────────────────────────────────── Lights
+  - title: Lights
+    path: lights
+    icon: mdi:lightbulb-group
+    type: sections
+    max_columns: 3
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Downstairs
+          - type: tile
+            entity: switch.0xa4c13862ee725dd9_l1
+            name: Lounge
+            icon: mdi:sofa
+          - type: tile
+            entity: switch.0xa4c13862ee725dd9_l2
+            name: Dining Room
+            icon: mdi:table-furniture
+          - type: tile
+            entity: switch.0x1cc089fffe8402f6
+            name: Kitchen
+            icon: mdi:countertop
+          - type: tile
+            entity: switch.0x1cc089fffece4b22
+            name: Entrance
+            icon: mdi:door
+          - type: tile
+            entity: light.0x00178801082118a4
+            name: Entrance Bulb
+            features: [{ type: light-brightness }]
+          - type: tile
+            entity: light.0x847127fffe7f0dec
+            name: Bathroom
+            features: [{ type: light-brightness }]
+
+      - type: grid
+        cards:
+          - type: heading
+            heading: Upstairs
+          - type: tile
+            entity: light.0x0017880108211b77
+            name: 1st Floor Bulb
+            features: [{ type: light-brightness }]
+          - type: tile
+            entity: switch.0x1cc089fffe2463d8
+            name: 1st Floor Light
+            icon: mdi:stairs
+          - type: tile
+            entity: switch.0x1cc089fffe55ad14
+            name: 2nd Floor Light
+            icon: mdi:stairs-up
+          - type: tile
+            entity: switch.0xd44867fffe29835d
+            name: Bedroom
+            icon: mdi:bed
+
+      - type: grid
+        cards:
+          - type: heading
+            heading: Kids & Guest
+          - type: tile
+            entity: light.0x847127fffe7f0b28
+            name: Liam Light
+            features: [{ type: light-brightness }]
+          - type: tile
+            entity: switch.0xd44867fffe210659
+            name: Liam Room
+            icon: mdi:teddy-bear
+          - type: tile
+            entity: switch.0xd44867fffe21238a
+            name: Luke Room
+            icon: mdi:teddy-bear
+          - type: tile
+            entity: switch.0xd44867fffe00a5e9
+            name: Guest Room
+            icon: mdi:bed-king
+
+  # ─────────────────────────────────────────────────────────── Cameras
+  - title: Cameras
+    path: cameras
+    icon: mdi:cctv
+    type: sections
+    max_columns: 2
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Front Door
+          - type: picture-entity
+            entity: camera.front_door_live_view
+            camera_view: live
+            name: Front Door
+          - type: tile
+            entity: sensor.front_door_last_activity
+            name: Last activity
+            icon: mdi:clock-outline
+          - type: tile
+            entity: sensor.front_door_battery
+            name: Battery
+      - type: grid
+        cards:
+          - type: heading
+            heading: Downstairs
+          - type: picture-entity
+            entity: camera.downstairs_live_view
+            camera_view: live
+            name: Downstairs

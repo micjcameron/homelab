@@ -1,0 +1,184 @@
+[
+  {
+    "area_id": "bedroom",
+    "devices": [
+      "35f7fbd61befdb3485f2ded26cca80b1"
+    ],
+    "entities": [
+      "switch.0xd44867fffe29835d",
+      "select.0xd44867fffe29835d_power_on_behavior",
+      "update.0xd44867fffe29835d"
+    ],
+    "name": "Bedroom"
+  },
+  {
+    "area_id": "closet",
+    "devices": [],
+    "entities": [],
+    "name": "Closet"
+  },
+  {
+    "area_id": "downstairs_bathroom",
+    "devices": [],
+    "entities": [
+      "automation.bathroom_light"
+    ],
+    "name": "Downstairs Bathroom"
+  },
+  {
+    "area_id": "entrance",
+    "devices": [
+      "fcb12e757357946ed775c59a0194c092",
+      "bd27a3a8aaf73f3657d5d4c5000c2c83",
+      "c2a68c473df8ac50057f609a2f430307",
+      "26c713a7158e98804c88ab431ff71b51"
+    ],
+    "entities": [
+      "select.0x00178801082118a4_power_on_behavior",
+      "light.0x00178801082118a4",
+      "update.0x00178801082118a4",
+      "switch.0x1cc089fffece4b22",
+      "select.0x1cc089fffece4b22_power_on_behavior",
+      "switch.0x1cc089fffece4b22_network_indicator",
+      "switch.0x1cc089fffece4b22_turbo_mode",
+      "switch.0x1cc089fffece4b22_delayed_power_on_state",
+      "number.0x1cc089fffece4b22_delayed_power_on_time",
+      "switch.0x1cc089fffece4b22_detach_relay_mode",
+      "select.0x1cc089fffece4b22_external_trigger_mode",
+      "update.0x1cc089fffece4b22",
+      "binary_sensor.0xa4c1381dee848188_occupancy",
+      "sensor.0xa4c1381dee848188_illuminance",
+      "sensor.0xa4c1381dee848188_battery",
+      "select.0xa4c1381dee848188_sensitivity",
+      "select.0xa4c1381dee848188_keep_time",
+      "number.0xa4c1381dee848188_illuminance_interval",
+      "light.0x847127fffe7f0dec",
+      "select.0x847127fffe7f0dec_effect",
+      "select.0x847127fffe7f0dec_power_on_behavior"
+    ],
+    "name": "Entrance"
+  },
+  {
+    "area_id": "guest_room",
+    "devices": [
+      "e478e13da4cc34a9409d1f3b5c05df07"
+    ],
+    "entities": [
+      "switch.0xd44867fffe00a5e9",
+      "select.0xd44867fffe00a5e9_power_on_behavior",
+      "update.0xd44867fffe00a5e9"
+    ],
+    "name": "Guest Room"
+  },
+  {
+    "area_id": "kitchen",
+    "devices": [
+      "f3c7fb6484b9bd60d7f8e6f0eb017572"
+    ],
+    "entities": [
+      "switch.0x1cc089fffe8402f6",
+      "select.0x1cc089fffe8402f6_power_on_behavior",
+      "switch.0x1cc089fffe8402f6_network_indicator",
+      "switch.0x1cc089fffe8402f6_turbo_mode",
+      "switch.0x1cc089fffe8402f6_delayed_power_on_state",
+      "number.0x1cc089fffe8402f6_delayed_power_on_time",
+      "switch.0x1cc089fffe8402f6_detach_relay_mode",
+      "select.0x1cc089fffe8402f6_external_trigger_mode",
+      "update.0x1cc089fffe8402f6"
+    ],
+    "name": "Kitchen"
+  },
+  {
+    "area_id": "landing_1st_floor",
+    "devices": [
+      "88e4f581407e975d6e0409e7bad44816",
+      "2169cc3ee3cdc8fa1917be66ddcedb2a"
+    ],
+    "entities": [
+      "light.0x0017880108211b77",
+      "select.0x0017880108211b77_power_on_behavior",
+      "update.0x0017880108211b77",
+      "switch.0x1cc089fffe2463d8",
+      "select.0x1cc089fffe2463d8_power_on_behavior",
+      "switch.0x1cc089fffe2463d8_network_indicator",
+      "switch.0x1cc089fffe2463d8_turbo_mode",
+      "switch.0x1cc089fffe2463d8_delayed_power_on_state",
+      "number.0x1cc089fffe2463d8_delayed_power_on_time",
+      "switch.0x1cc089fffe2463d8_detach_relay_mode",
+      "select.0x1cc089fffe2463d8_external_trigger_mode",
+      "update.0x1cc089fffe2463d8"
+    ],
+    "name": "Landing 1st Floor"
+  },
+  {
+    "area_id": "landing_2nd_floor",
+    "devices": [
+      "e8af45fe8862dcf351268c97cdb9ba7e"
+    ],
+    "entities": [
+      "switch.0x1cc089fffe55ad14",
+      "select.0x1cc089fffe55ad14_power_on_behavior",
+      "switch.0x1cc089fffe55ad14_network_indicator",
+      "switch.0x1cc089fffe55ad14_turbo_mode",
+      "switch.0x1cc089fffe55ad14_delayed_power_on_state",
+      "number.0x1cc089fffe55ad14_delayed_power_on_time",
+      "switch.0x1cc089fffe55ad14_detach_relay_mode",
+      "select.0x1cc089fffe55ad14_external_trigger_mode",
+      "update.0x1cc089fffe55ad14"
+    ],
+    "name": "Landing 2nd Floor"
+  },
+  {
+    "area_id": "liam_room",
+    "devices": [
+      "6e0fa3f4e7c7fde74c7d1854bb1af60a",
+      "5ecc8d8827411cb91b261f08fa5ec8e5"
+    ],
+    "entities": [
+      "switch.0xd44867fffe210659",
+      "select.0xd44867fffe210659_power_on_behavior",
+      "update.0xd44867fffe210659",
+      "light.0x847127fffe7f0b28",
+      "select.0x847127fffe7f0b28_power_on_behavior"
+    ],
+    "name": "Liam Room"
+  },
+  {
+    "area_id": "living_room",
+    "devices": [
+      "ac502fda1960d132b7080c7cc2d26624",
+      "03fbb47835731de163962bd256211e27",
+      "6572ddd3f6405316235c6e48764da804"
+    ],
+    "entities": [
+      "camera.downstairs_live_view",
+      "event.downstairs_motion",
+      "number.downstairs_volume",
+      "sensor.downstairs_battery",
+      "sensor.downstairs_last_activity",
+      "siren.downstairs_siren",
+      "switch.downstairs_motion_detection",
+      "select.0xa4c13862ee725dd9_power_on_behavior",
+      "select.0xa4c13862ee725dd9_switch_type",
+      "switch.0xa4c13862ee725dd9_l2",
+      "switch.0xa4c13862ee725dd9_l1",
+      "button.smart_thermostat_x_identify",
+      "climate.smart_thermostat_x",
+      "sensor.smart_thermostat_x_humidity",
+      "sensor.smart_thermostat_x_temperature"
+    ],
+    "name": "Living Room"
+  },
+  {
+    "area_id": "luke_room",
+    "devices": [
+      "2c77bb975fc8a28bc493202e2d9d8174"
+    ],
+    "entities": [
+      "switch.0xd44867fffe21238a",
+      "select.0xd44867fffe21238a_power_on_behavior",
+      "update.0xd44867fffe21238a"
+    ],
+    "name": "Luke Room"
+  }
+]

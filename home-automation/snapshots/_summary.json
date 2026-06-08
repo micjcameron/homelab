@@ -1,0 +1,16 @@
+{
+  "entity_count": 172,
+  "generated_at": "2026-06-03T07:53:54+00:00",
+  "ha_version": "2025.8.3",
+  "location_name": "Home",
+  "targets": [
+    "entities",
+    "registry",
+    "areas",
+    "devices",
+    "services",
+    "config",
+    "automations"
+  ],
+  "url": "http://192.168.1.128:8123"
+}

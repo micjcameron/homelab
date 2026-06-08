@@ -1,0 +1,47 @@
+services:
+  ui-admin:
+    container_name: ui-admin
+    build:
+      context: /home/micjcameron/homelab/ui-admin
+      dockerfile: Dockerfile
+    image: ui-admin:latest
+    restart: unless-stopped
+    depends_on:
+      - ui-admin-db
+    ports:
+      - "8090:8090"
+    env_file:
+      - /home/micjcameron/homelab/ui-admin/.env
+    environment:
+      - REPO_PATH=/repo
+    extra_hosts:
+      # so the container can reach host services (HA, Pi-hole) on the Pi
+      - "host.docker.internal:host-gateway"
+    volumes:
+      # control the other containers (⚠ root-equivalent on host — keep LAN-only)
+      - /var/run/docker.sock:/var/run/docker.sock
+      # read services.json, compose files, scripts
+      - /home/micjcameron/homelab:/repo:ro
+      # tail cron logs + measure host disk + read service log files (e.g. mosquitto)
+      - /home/micjcameron:/host-home:ro
+    networks:
+      - uiadmin
+
+  ui-admin-db:
+    container_name: ui-admin-db
+    image: postgres:16-alpine
+    restart: unless-stopped
+    # .env provides POSTGRES_USER / POSTGRES_PASSWORD / POSTGRES_DB directly.
+    env_file:
+      - /home/micjcameron/homelab/ui-admin/.env
+    volumes:
+      - ui_admin_pg:/var/lib/postgresql/data
+    networks:
+      - uiadmin
+
+networks:
+  uiadmin:
+    driver: bridge
+
+volumes:
+  ui_admin_pg:

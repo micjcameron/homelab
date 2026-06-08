@@ -10,6 +10,18 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
+# Dashboards: existing UI dashboards (Central, Map) keep working as-is;
+# this adds a repo-controlled YAML dashboard alongside them.
+lovelace:
+  mode: storage
+  dashboards:
+    wall-panel:
+      mode: yaml
+      title: Home
+      icon: mdi:tablet-dashboard
+      show_in_sidebar: true
+      filename: dashboards/wall.yaml
+
 sensor:
   - platform: afvalbeheer
     wastecollector: Avri

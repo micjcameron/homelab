@@ -22,7 +22,8 @@ RSYNC_EXCLUDES=(
   --exclude=tts/
   --exclude=backups/
   --exclude=custom_components/
-  --exclude=blueprints/
+  --exclude=blueprints/automation/homeassistant/
+  --exclude=blueprints/script/homeassistant/
   --exclude=sync.sh
 )
 

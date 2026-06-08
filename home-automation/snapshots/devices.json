@@ -1,0 +1,212 @@
+[
+  {
+    "area": "Landing 1st Floor",
+    "id": "88e4f581407e975d6e0409e7bad44816",
+    "manufacturer": "Philips",
+    "model": "Hue white A60 bulb E27 bluetooth",
+    "name": "1st Floor Bulb"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "manufacturer": "SONOFF",
+    "model": "Zigbee smart switch",
+    "name": "1st Floor Light"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "manufacturer": "SONOFF",
+    "model": "Zigbee smart switch",
+    "name": "2nd Floor Light"
+  },
+  {
+    "area": null,
+    "id": "c585bdbafa78d0b9e6a56d2062743d63",
+    "manufacturer": "pippyn",
+    "model": "integration",
+    "name": "Afvalbeheer"
+  },
+  {
+    "area": null,
+    "id": "ad5d7dbf7b6513e24c0ed57495a94391",
+    "manufacturer": "Afvalbeheer",
+    "model": "Avri",
+    "name": "Afvalbeheer Avri"
+  },
+  {
+    "area": null,
+    "id": "d75522809c24d66f9c3d2f516e08086e",
+    "manufacturer": "totaldebug",
+    "model": "plugin",
+    "name": "Atomic Calendar Revive"
+  },
+  {
+    "area": null,
+    "id": "303800472acc628ae3bcba2efbab2f41",
+    "manufacturer": "Home Assistant",
+    "model": "Home Assistant Backup",
+    "name": "Backup"
+  },
+  {
+    "area": "Entrance",
+    "id": "26c713a7158e98804c88ab431ff71b51",
+    "manufacturer": "LDS",
+    "model": "Automatically generated definition",
+    "name": "Bathroom Light"
+  },
+  {
+    "area": "Entrance",
+    "id": "c2a68c473df8ac50057f609a2f430307",
+    "manufacturer": "Tuya",
+    "model": "Luminance motion sensor",
+    "name": "Bathroom Motion"
+  },
+  {
+    "area": null,
+    "id": "2fddc2c880c27444d37dac3549865a90",
+    "manufacturer": "thomasloven",
+    "model": "integration",
+    "name": "browser_mod"
+  },
+  {
+    "area": null,
+    "id": "395cd74e1479a09906569ad9824afc4b",
+    "manufacturer": "Browser Mod",
+    "model": null,
+    "name": "browser_mod_0b6a24d9_ba0dcfa6"
+  },
+  {
+    "area": null,
+    "id": "c51a92cc80b309832613ddeb41854994",
+    "manufacturer": "Browser Mod",
+    "model": null,
+    "name": "browser_mod_ab0fd561_71b7fcdf"
+  },
+  {
+    "area": "Living Room",
+    "id": "ac502fda1960d132b7080c7cc2d26624",
+    "manufacturer": "Ring",
+    "model": "Indoor Cam (2nd Gen)",
+    "name": "Downstairs"
+  },
+  {
+    "area": "Entrance",
+    "id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "manufacturer": "SONOFF",
+    "model": "Zigbee smart switch",
+    "name": "Entrance Light"
+  },
+  {
+    "area": "Entrance",
+    "id": "fcb12e757357946ed775c59a0194c092",
+    "manufacturer": "Philips",
+    "model": "Hue white A60 bulb E27 bluetooth",
+    "name": "Entrance Light Bulb"
+  },
+  {
+    "area": null,
+    "id": "e0a37a89c369a8065f44ae077e36c1c6",
+    "manufacturer": "Met.no",
+    "model": "Forecast",
+    "name": "Forecast"
+  },
+  {
+    "area": null,
+    "id": "8cf4e649e484a79868515e66dee52b86",
+    "manufacturer": "Ring",
+    "model": "Battery Doorbell",
+    "name": "Front Door"
+  },
+  {
+    "area": "Guest Room",
+    "id": "e478e13da4cc34a9409d1f3b5c05df07",
+    "manufacturer": "SONOFF",
+    "model": "Zigbee smart switch (no neutral)",
+    "name": "Guest Room"
+  },
+  {
+    "area": null,
+    "id": "a12229f5c022077e161d921cb0d7c229",
+    "manufacturer": "hacs.xyz",
+    "model": "",
+    "name": "HACS"
+  },
+  {
+    "area": "Kitchen",
+    "id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "manufacturer": "SONOFF",
+    "model": "Zigbee smart switch",
+    "name": "Kitchen Light"
+  },
+  {
+    "area": "Liam Room",
+    "id": "5ecc8d8827411cb91b261f08fa5ec8e5",
+    "manufacturer": "LDS",
+    "model": "Automatically generated definition",
+    "name": "Liam Light Bulb"
+  },
+  {
+    "area": "Liam Room",
+    "id": "6e0fa3f4e7c7fde74c7d1854bb1af60a",
+    "manufacturer": "SONOFF",
+    "model": "Zigbee smart switch (no neutral)",
+    "name": "Liam Room"
+  },
+  {
+    "area": "Living Room",
+    "id": "03fbb47835731de163962bd256211e27",
+    "manufacturer": "Tuya",
+    "model": "2 gang switch module",
+    "name": "Living Area"
+  },
+  {
+    "area": "Luke Room",
+    "id": "2c77bb975fc8a28bc493202e2d9d8174",
+    "manufacturer": "SONOFF",
+    "model": "Zigbee smart switch (no neutral)",
+    "name": "Luke Room"
+  },
+  {
+    "area": "Bedroom",
+    "id": "35f7fbd61befdb3485f2ded26cca80b1",
+    "manufacturer": "SONOFF",
+    "model": "Zigbee smart switch (no neutral)",
+    "name": "Main Room"
+  },
+  {
+    "area": null,
+    "id": "6e86d623bafa441e5d5eb1ea62d6426d",
+    "manufacturer": "samsung",
+    "model": "SM-G996B",
+    "name": "SM-G996B"
+  },
+  {
+    "area": null,
+    "id": "3f08aa8cb00427078364f53b9ebaea62",
+    "manufacturer": "samsung",
+    "model": "SM-X200",
+    "name": "SM-X200"
+  },
+  {
+    "area": "Living Room",
+    "id": "6572ddd3f6405316235c6e48764da804",
+    "manufacturer": "tado° GmbH",
+    "model": "Smart Thermostat X",
+    "name": "Smart Thermostat X"
+  },
+  {
+    "area": null,
+    "id": "a9f1962f3a7821af451c6990d2eb6796",
+    "manufacturer": null,
+    "model": null,
+    "name": "Sun"
+  },
+  {
+    "area": null,
+    "id": "65d807a3cd1334a7441121163e45d062",
+    "manufacturer": "Zigbee2MQTT",
+    "model": "Bridge",
+    "name": "Zigbee2MQTT Bridge"
+  }
+]

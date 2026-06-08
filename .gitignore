@@ -1,20 +1,38 @@
-# Home Assistant — keep secrets and runtime state out of git
-home-automation/homeassistant-config/secrets.yaml
-home-automation/homeassistant-config/.storage/
-home-automation/homeassistant-config/.storage.bak*
+# The Home Assistant config dir is mirrored here IN FULL for reference
+# (run: ./home-automation/scripts/ha-deploy.sh mirror). Only huge / volatile /
+# regenerable files are excluded below — they carry no reference value and would
+# bloat git. Tracking secrets/.storage/custom_components is safe because the
+# deploy step never pushes those back to the Pi (see EXCLUDES in ha-deploy.sh).
 
-# Auto-generated runtime files (not hand-edited, would only churn the repo)
+# --- Recorder database (binary, rewritten every second) ---
 home-automation/homeassistant-config/*.db
 home-automation/homeassistant-config/*.db-*
+
+# --- Logs ---
 home-automation/homeassistant-config/*.log
 home-automation/homeassistant-config/*.log.*
-home-automation/homeassistant-config/.HA_VERSION
-home-automation/homeassistant-config/.uuid
-home-automation/homeassistant-config/.cloud/
+
+# --- Regenerable caches / cloud auth / HA backup tarballs ---
 home-automation/homeassistant-config/deps/
 home-automation/homeassistant-config/tts/
+home-automation/homeassistant-config/.cloud/
 home-automation/homeassistant-config/backups/
 
-# Externally managed (HACS / community gallery)
-home-automation/homeassistant-config/custom_components/
-home-automation/homeassistant-config/blueprints/
+# --- Timestamped .storage backups (kept only on the Pi) ---
+home-automation/homeassistant-config/.storage.bak*
+
+# --- Python bytecode from custom_components ---
+home-automation/homeassistant-config/**/__pycache__/
+home-automation/homeassistant-config/**/*.pyc
+
+# --- HACS itself: ~51M of package-manager source, not reference material ---
+home-automation/homeassistant-config/custom_components/hacs/
+
+# --- Live secrets: kept on the Pi/Mac only, never pushed (GitHub blocks them, ---
+# --- and .storage holds Google/GitHub OAuth tokens with no reference value) ---
+home-automation/homeassistant-config/.storage/
+home-automation/homeassistant-config/.storage.bak*
+home-automation/homeassistant-config/secrets.yaml
+
+# --- OS noise ---
+.DS_Store

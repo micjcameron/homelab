@@ -13,7 +13,7 @@ CHAT_ID="8588606286"
 
 # Home Assistant
 HA_URL="${HA_URL:-http://localhost:8123}"
-HA_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI5ZjlmOTY2YmY4MDk0Zjk2YmZiYjllYjE4ODc0MjAwMCIsImlhdCI6MTc3ODIzMDM5NSwiZXhwIjoyMDkzNTkwMzk1fQ.RfDKbbmlzNGbPs9RIpPcBRNKGcTqC9YEkKJKrtckb08"
+HA_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4YWQwNDcyZDJhMWE0YWRmOTBhNzc5ZjE3MjNiZjEzMCIsImlhdCI6MTc4MDkxNDU3OCwiZXhwIjoyMDk2Mjc0NTc4fQ.o9Qev4tBhNM5qovTWU4jFCpHb9LNzBnMUgkysEoD3Xo"
 CALENDAR_ENTITY="calendar.afvalbeheer_avri"
 
 if [ -z "$BOT_TOKEN" ] || [ -z "$CHAT_ID" ] || [ -z "$HA_TOKEN" ]; then

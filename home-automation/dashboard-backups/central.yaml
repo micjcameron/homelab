@@ -1,0 +1,252 @@
+# Backup of the 'central' dashboard (storage-mode / UI-managed).
+# Exported from .storage/lovelace.dashboard_central. Reference/restore copy — NOT deployed.
+views:
+- type: sections
+  max_columns: 4
+  title: Ground Floor
+  icon: ''
+  sections:
+  - type: grid
+    cards:
+    - type: heading
+      heading: Lighting
+      heading_style: title
+      icon: mdi:alarm-light
+    - type: tile
+      entity: switch.0x1cc089fffece4b22
+    - type: tile
+      entity: switch.0xa4c13862ee725dd9_l1
+    - type: tile
+      entity: switch.0x1cc089fffe8402f6
+    - type: tile
+      entity: switch.0xa4c13862ee725dd9_l2
+    - type: tile
+      entity: light.0x847127fffe7f0dec
+      features_position: bottom
+      vertical: false
+    - type: heading
+      heading: Lounge
+      heading_style: title
+      icon: mdi:television
+    - type: media-control
+      entity: media_player.85_qled_qe85q80datxxn
+    - type: custom:popup-card
+      entity: camera.front_door_live_view
+      title: Custom popup
+      dismissable: true
+      card:
+        type: markdown
+        content: This card can be used in browser_mod.popup service or to replace
+          the more-info dialog
+      popup_card_id: Frontdoor popup
+  - type: grid
+    cards:
+    - type: heading
+      heading: Climate
+      heading_style: title
+    - maxDaysToShow: 2
+      maxEventCount: 6
+      showCurrentEventLine: true
+      showDate: true
+      dateFormat: ddd D MMM
+      allDayBottom: true
+      disableEventLink: true
+      disableLocationLink: true
+      hideFinishedEvents: true
+      tap_action:
+        action: fire-dom-event
+        browser_mod:
+          service: browser_mod.popup
+          data:
+            title: Next 7 days
+            size: wide
+            content:
+              type: custom:atomic-calendar-revive
+              maxDaysToShow: 7
+              maxEventCount: 25
+              showDate: true
+              dateFormat: ddd D MMM
+              showHours: true
+              hoursFormat: 24h
+              showCurrentEventLine: true
+              showProgressBar: true
+              firstDayOfWeek: 1
+              disableEventLink: true
+              disableLocationLink: true
+              entities:
+              - entity: calendar.cameronhousehold9291_gmail_com
+                name: Us
+                color: '#7C9885'
+              - entity: calendar.afvalbeheer_avri
+                name: Avri
+                color: '#5B7DB1'
+              - entity: calendar.micjcameron_gmail_com
+                name: Michael
+                color: '#5B7DB1'
+      type: custom:atomic-calendar-revive
+      name: Today & Tomorrow
+      hoursFormat: 24h
+      entities:
+      - entity: calendar.cameronhousehold9291_gmail_com
+        name: Cameron Household
+        icon: mdi:account-group
+      - entity: calendar.micjcameron_gmail_com
+        name: Michael
+      - entity: calendar.afvalbeheer_avri
+        name: Avri
+      compactMode: false
+      grid_options:
+        columns: 12
+        rows: auto
+    - type: thermostat
+      entity: climate.smart_thermostat_x
+    - type: tile
+      entity: climate.smart_thermostat_x
+      features_position: bottom
+      vertical: false
+      name: Tempreture Lounge
+    - type: tile
+      entity: sensor.smart_thermostat_x_humidity
+      features_position: bottom
+      vertical: false
+      grid_options:
+        rows: 1
+      name: Humidity
+      show_entity_picture: false
+      state_content: state
+    column_span: 1
+  - type: grid
+    cards:
+    - type: heading
+      heading_style: title
+      heading: General
+      icon: mdi:information-box
+    - show_current: true
+      show_forecast: true
+      type: weather-forecast
+      entity: weather.forecast_home
+      forecast_type: daily
+      name: Weather
+      grid_options:
+        columns: 12
+        rows: 4
+    - show_state: true
+      show_name: true
+      camera_view: auto
+      fit_mode: cover
+      type: picture-entity
+      image: https://demo.home-assistant.io/stub_config/bedroom.png
+      name: Front Door
+      camera_image: camera.front_door_live_view
+      entity: camera.front_door_live_view
+  cards: []
+  header: {}
+- type: sections
+  title: 1st Floor
+  cards: []
+  sections:
+  - type: grid
+    cards:
+    - type: heading
+      heading: Lights
+      heading_style: title
+      icon: mdi:alarm-light-outline
+      badges:
+      - type: entity
+        entity: update.0x1cc089fffe2463d8
+      - type: entity
+        entity: update.0x0017880108211b77
+    - type: tile
+      entity: switch.0x1cc089fffe2463d8
+    - type: tile
+      entity: switch.0xd44867fffe210659
+    - type: tile
+      entity: switch.0xd44867fffe21238a
+    - type: tile
+      entity: switch.0xd44867fffe29835d
+  - type: grid
+    cards:
+    - type: heading
+      heading: Camera Feeds
+      heading_style: title
+    - show_state: true
+      show_name: true
+      camera_view: auto
+      fit_mode: cover
+      type: picture-entity
+      entity: camera.front_door_live_view
+      image: https://demo.home-assistant.io/stub_config/bedroom.png
+      name: Front Door
+      camera_image: camera.front_door_live_view
+    - show_state: true
+      show_name: true
+      camera_view: auto
+      fit_mode: cover
+      type: picture-entity
+      entity: camera.downstairs_live_view
+      image: https://demo.home-assistant.io/stub_config/bedroom.png
+      name: Downstairs
+      camera_image: camera.downstairs_live_view
+  - type: grid
+    cards:
+    - type: heading
+      heading: Climate
+      heading_style: title
+      icon: mdi:waves-arrow-up
+    - show_current: true
+      show_forecast: true
+      type: weather-forecast
+      entity: weather.forecast_home
+      forecast_type: daily
+      forecast_slots: 12
+      secondary_info_attribute: temperature
+- type: sections
+  max_columns: 4
+  title: 2nd Floor
+  path: 2nd-floor
+  sections:
+  - type: grid
+    cards:
+    - type: heading
+      heading: Lights
+      heading_style: title
+    - type: tile
+      entity: switch.0x1cc089fffe55ad14
+    - type: tile
+      entity: switch.0xd44867fffe00a5e9
+  - type: grid
+    cards:
+    - type: heading
+      heading: Camera Feeds
+      heading_style: title
+    - show_state: true
+      show_name: true
+      camera_view: auto
+      fit_mode: cover
+      type: picture-entity
+      entity: camera.front_door_live_view
+      image: https://demo.home-assistant.io/stub_config/bedroom.png
+      name: Front Door
+      camera_image: camera.front_door_live_view
+    - show_state: true
+      show_name: true
+      camera_view: auto
+      fit_mode: cover
+      type: picture-entity
+      entity: switch.downstairs_motion_detection
+      image: https://demo.home-assistant.io/stub_config/bedroom.png
+      name: Downstairs
+      camera_image: camera.downstairs_live_view
+  - type: grid
+    cards:
+    - type: heading
+      heading_style: title
+      heading: Climate
+    - show_current: true
+      show_forecast: true
+      type: weather-forecast
+      entity: weather.forecast_home
+      forecast_type: daily
+      secondary_info_attribute: temperature
+      forecast_slots: 12
+      name: Forecase Home

@@ -1,0 +1,1378 @@
+[
+  {
+    "area": "Downstairs Bathroom",
+    "device_id": null,
+    "domain": "automation",
+    "entity_id": "automation.bathroom_light",
+    "name": "Bathroom Light",
+    "state": "on"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "automation",
+    "entity_id": "automation.ring_motion_popup",
+    "name": "Ring Motion Popup",
+    "state": "on"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "c2a68c473df8ac50057f609a2f430307",
+    "domain": "binary_sensor",
+    "entity_id": "binary_sensor.0xa4c1381dee848188_occupancy",
+    "name": "Bathroom Motion Occupancy",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "binary_sensor",
+    "entity_id": "binary_sensor.browser_mod_0b6a24d9_ba0dcfa6",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "binary_sensor",
+    "entity_id": "binary_sensor.browser_mod_0b6a24d9_ba0dcfa6_browser_dark_mode",
+    "name": "Browser dark mode",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "binary_sensor",
+    "entity_id": "binary_sensor.browser_mod_0b6a24d9_ba0dcfa6_browser_fullykiosk",
+    "name": "Browser FullyKiosk",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "binary_sensor",
+    "entity_id": "binary_sensor.browser_mod_ab0fd561_71b7fcdf",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "binary_sensor",
+    "entity_id": "binary_sensor.browser_mod_ab0fd561_71b7fcdf_browser_dark_mode",
+    "name": "Browser dark mode",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "binary_sensor",
+    "entity_id": "binary_sensor.browser_mod_ab0fd561_71b7fcdf_browser_fullykiosk",
+    "name": "Browser FullyKiosk",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "binary_sensor",
+    "entity_id": "binary_sensor.remote_ui",
+    "name": "Remote UI",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "65d807a3cd1334a7441121163e45d062",
+    "domain": "binary_sensor",
+    "entity_id": "binary_sensor.zigbee2mqtt_bridge_connection_state",
+    "name": "Zigbee2MQTT Bridge Connection state",
+    "state": "on"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "6572ddd3f6405316235c6e48764da804",
+    "domain": "button",
+    "entity_id": "button.smart_thermostat_x_identify",
+    "name": "Smart Thermostat X Identify",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": "65d807a3cd1334a7441121163e45d062",
+    "domain": "button",
+    "entity_id": "button.zigbee2mqtt_bridge_restart",
+    "name": "Zigbee2MQTT Bridge Restart",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": "ad5d7dbf7b6513e24c0ed57495a94391",
+    "domain": "calendar",
+    "entity_id": "calendar.afvalbeheer_avri",
+    "name": "Afvalbeheer avri",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "calendar",
+    "entity_id": "calendar.birthdays",
+    "name": "Birthdays",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "calendar",
+    "entity_id": "calendar.cameronhousehold9291_gmail_com",
+    "name": "Cameronhousehold9291@gmail.com",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "calendar",
+    "entity_id": "calendar.holidays_in_netherlands",
+    "name": "Holidays in netherlands",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "calendar",
+    "entity_id": "calendar.micjcameron_gmail_com",
+    "name": "Micjcameron@gmail.com",
+    "state": "off"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "ac502fda1960d132b7080c7cc2d26624",
+    "domain": "camera",
+    "entity_id": "camera.downstairs_live_view",
+    "name": "Downstairs Live view",
+    "state": "idle"
+  },
+  {
+    "area": null,
+    "device_id": "8cf4e649e484a79868515e66dee52b86",
+    "domain": "camera",
+    "entity_id": "camera.front_door_live_view",
+    "name": "Front Door Live view",
+    "state": "idle"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "6572ddd3f6405316235c6e48764da804",
+    "domain": "climate",
+    "entity_id": "climate.smart_thermostat_x",
+    "name": "Thermo Lounge",
+    "state": "heat"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "conversation",
+    "entity_id": "conversation.home_assistant",
+    "name": "Home Assistant",
+    "state": "2026-01-25T21:16:00.222604+00:00"
+  },
+  {
+    "area": null,
+    "device_id": "6e86d623bafa441e5d5eb1ea62d6426d",
+    "domain": "device_tracker",
+    "entity_id": "device_tracker.sm_g996b",
+    "name": "SM-G996B",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": "3f08aa8cb00427078364f53b9ebaea62",
+    "domain": "device_tracker",
+    "entity_id": "device_tracker.sm_x200",
+    "name": "SM-X200",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": "303800472acc628ae3bcba2efbab2f41",
+    "domain": "event",
+    "entity_id": "event.backup_automatic_backup",
+    "name": "Backup Automatic backup",
+    "state": "2026-06-03T03:44:00.070+00:00"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "ac502fda1960d132b7080c7cc2d26624",
+    "domain": "event",
+    "entity_id": "event.downstairs_motion",
+    "name": "Downstairs Motion",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": "8cf4e649e484a79868515e66dee52b86",
+    "domain": "event",
+    "entity_id": "event.front_door_ding",
+    "name": "Front Door Ding",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": "8cf4e649e484a79868515e66dee52b86",
+    "domain": "event",
+    "entity_id": "event.front_door_motion",
+    "name": "Front Door Motion",
+    "state": "unknown"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "fcb12e757357946ed775c59a0194c092",
+    "domain": "light",
+    "entity_id": "light.0x00178801082118a4",
+    "name": "Entrance Light Bulb",
+    "state": "on"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "88e4f581407e975d6e0409e7bad44816",
+    "domain": "light",
+    "entity_id": "light.0x0017880108211b77",
+    "name": "1st Floor Bulb",
+    "state": "on"
+  },
+  {
+    "area": "Liam Room",
+    "device_id": "5ecc8d8827411cb91b261f08fa5ec8e5",
+    "domain": "light",
+    "entity_id": "light.0x847127fffe7f0b28",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "26c713a7158e98804c88ab431ff71b51",
+    "domain": "light",
+    "entity_id": "light.0x847127fffe7f0dec",
+    "name": "Bathroom Light",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "light",
+    "entity_id": "light.browser_mod_0b6a24d9_ba0dcfa6_screen",
+    "name": "Screen",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "light",
+    "entity_id": "light.browser_mod_ab0fd561_71b7fcdf_screen",
+    "name": "Screen",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "media_player",
+    "entity_id": "media_player.browser_mod_0b6a24d9_ba0dcfa6",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "media_player",
+    "entity_id": "media_player.browser_mod_ab0fd561_71b7fcdf",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "domain": "number",
+    "entity_id": "number.0x1cc089fffe2463d8_delayed_power_on_time",
+    "name": "1st Floor Light Delayed power on time",
+    "state": "37.5"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "device_id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "domain": "number",
+    "entity_id": "number.0x1cc089fffe55ad14_delayed_power_on_time",
+    "name": "Delayed power on time",
+    "state": "unavailable"
+  },
+  {
+    "area": "Kitchen",
+    "device_id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "domain": "number",
+    "entity_id": "number.0x1cc089fffe8402f6_delayed_power_on_time",
+    "name": "Kitchen Light Delayed power on time",
+    "state": "50"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "domain": "number",
+    "entity_id": "number.0x1cc089fffece4b22_delayed_power_on_time",
+    "name": "Delayed power on time",
+    "state": "unavailable"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "c2a68c473df8ac50057f609a2f430307",
+    "domain": "number",
+    "entity_id": "number.0xa4c1381dee848188_illuminance_interval",
+    "name": "Bathroom Motion Illuminance interval",
+    "state": "60"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "ac502fda1960d132b7080c7cc2d26624",
+    "domain": "number",
+    "entity_id": "number.downstairs_volume",
+    "name": "Downstairs Volume",
+    "state": "8.0"
+  },
+  {
+    "area": null,
+    "device_id": "8cf4e649e484a79868515e66dee52b86",
+    "domain": "number",
+    "entity_id": "number.front_door_volume",
+    "name": "Front Door Volume",
+    "state": "8.0"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "person",
+    "entity_id": "person.michael_cameron",
+    "name": "Michael Cameron",
+    "state": "unknown"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "fcb12e757357946ed775c59a0194c092",
+    "domain": "select",
+    "entity_id": "select.0x00178801082118a4_power_on_behavior",
+    "name": "Entrance Light Bulb Power-on behavior",
+    "state": "unknown"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "88e4f581407e975d6e0409e7bad44816",
+    "domain": "select",
+    "entity_id": "select.0x0017880108211b77_power_on_behavior",
+    "name": "1st Floor Bulb Power-on behavior",
+    "state": "unknown"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "domain": "select",
+    "entity_id": "select.0x1cc089fffe2463d8_external_trigger_mode",
+    "name": "1st Floor Light External trigger mode",
+    "state": "edge"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "domain": "select",
+    "entity_id": "select.0x1cc089fffe2463d8_power_on_behavior",
+    "name": "1st Floor Light Power-on behavior",
+    "state": "unknown"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "device_id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "domain": "select",
+    "entity_id": "select.0x1cc089fffe55ad14_external_trigger_mode",
+    "name": "External trigger mode",
+    "state": "unavailable"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "device_id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "domain": "select",
+    "entity_id": "select.0x1cc089fffe55ad14_power_on_behavior",
+    "name": "Power-on behavior",
+    "state": "unavailable"
+  },
+  {
+    "area": "Kitchen",
+    "device_id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "domain": "select",
+    "entity_id": "select.0x1cc089fffe8402f6_external_trigger_mode",
+    "name": "Kitchen Light External trigger mode",
+    "state": "edge"
+  },
+  {
+    "area": "Kitchen",
+    "device_id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "domain": "select",
+    "entity_id": "select.0x1cc089fffe8402f6_power_on_behavior",
+    "name": "Kitchen Light Power-on behavior",
+    "state": "unknown"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "domain": "select",
+    "entity_id": "select.0x1cc089fffece4b22_external_trigger_mode",
+    "name": "External trigger mode",
+    "state": "unavailable"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "domain": "select",
+    "entity_id": "select.0x1cc089fffece4b22_power_on_behavior",
+    "name": "Power-on behavior",
+    "state": "unavailable"
+  },
+  {
+    "area": "Liam Room",
+    "device_id": "5ecc8d8827411cb91b261f08fa5ec8e5",
+    "domain": "select",
+    "entity_id": "select.0x847127fffe7f0b28_power_on_behavior",
+    "name": "Power-on behavior",
+    "state": "unavailable"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "26c713a7158e98804c88ab431ff71b51",
+    "domain": "select",
+    "entity_id": "select.0x847127fffe7f0dec_effect",
+    "name": "Bathroom Light Effect",
+    "state": "unknown"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "26c713a7158e98804c88ab431ff71b51",
+    "domain": "select",
+    "entity_id": "select.0x847127fffe7f0dec_power_on_behavior",
+    "name": "Bathroom Light Power-on behavior",
+    "state": "unknown"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "c2a68c473df8ac50057f609a2f430307",
+    "domain": "select",
+    "entity_id": "select.0xa4c1381dee848188_keep_time",
+    "name": "Bathroom Motion Keep time",
+    "state": "10"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "c2a68c473df8ac50057f609a2f430307",
+    "domain": "select",
+    "entity_id": "select.0xa4c1381dee848188_sensitivity",
+    "name": "Bathroom Motion Sensitivity",
+    "state": "high"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "03fbb47835731de163962bd256211e27",
+    "domain": "select",
+    "entity_id": "select.0xa4c13862ee725dd9_power_on_behavior",
+    "name": "Living Area Power-on behavior",
+    "state": "unknown"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "03fbb47835731de163962bd256211e27",
+    "domain": "select",
+    "entity_id": "select.0xa4c13862ee725dd9_switch_type",
+    "name": "Living Area Switch type",
+    "state": "toggle"
+  },
+  {
+    "area": "Guest Room",
+    "device_id": "e478e13da4cc34a9409d1f3b5c05df07",
+    "domain": "select",
+    "entity_id": "select.0xd44867fffe00a5e9_power_on_behavior",
+    "name": "Guest Room Power-on behavior",
+    "state": "off"
+  },
+  {
+    "area": "Liam Room",
+    "device_id": "6e0fa3f4e7c7fde74c7d1854bb1af60a",
+    "domain": "select",
+    "entity_id": "select.0xd44867fffe210659_power_on_behavior",
+    "name": "Power-on behavior",
+    "state": "unavailable"
+  },
+  {
+    "area": "Luke Room",
+    "device_id": "2c77bb975fc8a28bc493202e2d9d8174",
+    "domain": "select",
+    "entity_id": "select.0xd44867fffe21238a_power_on_behavior",
+    "name": "Power-on behavior",
+    "state": "unavailable"
+  },
+  {
+    "area": "Bedroom",
+    "device_id": "35f7fbd61befdb3485f2ded26cca80b1",
+    "domain": "select",
+    "entity_id": "select.0xd44867fffe29835d_power_on_behavior",
+    "name": "Main Room Power-on behavior",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": "65d807a3cd1334a7441121163e45d062",
+    "domain": "select",
+    "entity_id": "select.zigbee2mqtt_bridge_log_level",
+    "name": "Zigbee2MQTT Bridge Log level",
+    "state": "info"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "c2a68c473df8ac50057f609a2f430307",
+    "domain": "sensor",
+    "entity_id": "sensor.0xa4c1381dee848188_battery",
+    "name": "Bathroom Motion Battery",
+    "state": "100"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "c2a68c473df8ac50057f609a2f430307",
+    "domain": "sensor",
+    "entity_id": "sensor.0xa4c1381dee848188_illuminance",
+    "name": "Bathroom Motion Illuminance",
+    "state": "2242"
+  },
+  {
+    "area": null,
+    "device_id": "ad5d7dbf7b6513e24c0ed57495a94391",
+    "domain": "sensor",
+    "entity_id": "sensor.avri_avri_waste_eerstvolgende",
+    "name": "Avri Avri Waste eerstvolgende",
+    "state": "Vrijdag, 05-06-2026: GFT"
+  },
+  {
+    "area": null,
+    "device_id": "ad5d7dbf7b6513e24c0ed57495a94391",
+    "domain": "sensor",
+    "entity_id": "sensor.avri_avri_waste_gft",
+    "name": "Avri Avri Waste GFT",
+    "state": "Vrijdag, 05-06-2026"
+  },
+  {
+    "area": null,
+    "device_id": "ad5d7dbf7b6513e24c0ed57495a94391",
+    "domain": "sensor",
+    "entity_id": "sensor.avri_avri_waste_morgen",
+    "name": "Avri Avri Waste morgen",
+    "state": "Geen"
+  },
+  {
+    "area": null,
+    "device_id": "ad5d7dbf7b6513e24c0ed57495a94391",
+    "domain": "sensor",
+    "entity_id": "sensor.avri_avri_waste_papier",
+    "name": "Avri Avri Waste Papier",
+    "state": "22-06-2026"
+  },
+  {
+    "area": null,
+    "device_id": "ad5d7dbf7b6513e24c0ed57495a94391",
+    "domain": "sensor",
+    "entity_id": "sensor.avri_avri_waste_pmd",
+    "name": "Avri Avri Waste PMD",
+    "state": "Woensdag, 10-06-2026"
+  },
+  {
+    "area": null,
+    "device_id": "ad5d7dbf7b6513e24c0ed57495a94391",
+    "domain": "sensor",
+    "entity_id": "sensor.avri_avri_waste_vandaag",
+    "name": "Avri Avri Waste vandaag",
+    "state": "Geen"
+  },
+  {
+    "area": null,
+    "device_id": "303800472acc628ae3bcba2efbab2f41",
+    "domain": "sensor",
+    "entity_id": "sensor.backup_backup_manager_state",
+    "name": "Backup Backup Manager state",
+    "state": "idle"
+  },
+  {
+    "area": null,
+    "device_id": "303800472acc628ae3bcba2efbab2f41",
+    "domain": "sensor",
+    "entity_id": "sensor.backup_last_attempted_automatic_backup",
+    "name": "Backup Last attempted automatic backup",
+    "state": "2026-06-03T03:43:48+00:00"
+  },
+  {
+    "area": null,
+    "device_id": "303800472acc628ae3bcba2efbab2f41",
+    "domain": "sensor",
+    "entity_id": "sensor.backup_last_successful_automatic_backup",
+    "name": "Backup Last successful automatic backup",
+    "state": "2026-06-03T03:43:58+00:00"
+  },
+  {
+    "area": null,
+    "device_id": "303800472acc628ae3bcba2efbab2f41",
+    "domain": "sensor",
+    "entity_id": "sensor.backup_next_scheduled_automatic_backup",
+    "name": "Backup Next scheduled automatic backup",
+    "state": "2026-06-04T03:22:15+00:00"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_0b6a24d9_ba0dcfa6_browser_height",
+    "name": "Browser height",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_0b6a24d9_ba0dcfa6_browser_id",
+    "name": "Browser ID",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_0b6a24d9_ba0dcfa6_browser_path",
+    "name": "Browser path",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_0b6a24d9_ba0dcfa6_browser_user",
+    "name": "Browser user",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_0b6a24d9_ba0dcfa6_browser_useragent",
+    "name": "Browser userAgent",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_0b6a24d9_ba0dcfa6_browser_visibility",
+    "name": "Browser visibility",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_0b6a24d9_ba0dcfa6_browser_width",
+    "name": "Browser width",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "395cd74e1479a09906569ad9824afc4b",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_0b6a24d9_ba0dcfa6_panel",
+    "name": "Panel",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_ab0fd561_71b7fcdf_browser_height",
+    "name": "Browser height",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_ab0fd561_71b7fcdf_browser_id",
+    "name": "Browser ID",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_ab0fd561_71b7fcdf_browser_path",
+    "name": "Browser path",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_ab0fd561_71b7fcdf_browser_user",
+    "name": "Browser user",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_ab0fd561_71b7fcdf_browser_useragent",
+    "name": "Browser userAgent",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_ab0fd561_71b7fcdf_browser_visibility",
+    "name": "Browser visibility",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_ab0fd561_71b7fcdf_browser_width",
+    "name": "Browser width",
+    "state": "unavailable"
+  },
+  {
+    "area": null,
+    "device_id": "c51a92cc80b309832613ddeb41854994",
+    "domain": "sensor",
+    "entity_id": "sensor.browser_mod_ab0fd561_71b7fcdf_panel",
+    "name": "Panel",
+    "state": "unavailable"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "ac502fda1960d132b7080c7cc2d26624",
+    "domain": "sensor",
+    "entity_id": "sensor.downstairs_battery",
+    "name": "Downstairs Battery",
+    "state": "100"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "ac502fda1960d132b7080c7cc2d26624",
+    "domain": "sensor",
+    "entity_id": "sensor.downstairs_last_activity",
+    "name": "Downstairs Last activity",
+    "state": "2026-05-25T11:52:25+00:00"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "sensor",
+    "entity_id": "sensor.first_upcoming",
+    "name": "first upcoming",
+    "state": "Friday, 05-06-2026: GFT"
+  },
+  {
+    "area": null,
+    "device_id": "8cf4e649e484a79868515e66dee52b86",
+    "domain": "sensor",
+    "entity_id": "sensor.front_door_battery",
+    "name": "Front Door Battery",
+    "state": "20"
+  },
+  {
+    "area": null,
+    "device_id": "8cf4e649e484a79868515e66dee52b86",
+    "domain": "sensor",
+    "entity_id": "sensor.front_door_last_activity",
+    "name": "Front Door Last activity",
+    "state": "2026-06-03T07:20:44+00:00"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "sensor",
+    "entity_id": "sensor.gft",
+    "name": "gft",
+    "state": "Friday, 05-06-2026"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "sensor",
+    "entity_id": "sensor.papier",
+    "name": "papier",
+    "state": "22-06-2026"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "sensor",
+    "entity_id": "sensor.pmd",
+    "name": "pmd",
+    "state": "Wednesday, 10-06-2026"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "sensor",
+    "entity_id": "sensor.restafval",
+    "name": "restafval",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": "6e86d623bafa441e5d5eb1ea62d6426d",
+    "domain": "sensor",
+    "entity_id": "sensor.sm_g996b_battery_level",
+    "name": "SM-G996B Battery level",
+    "state": "90"
+  },
+  {
+    "area": null,
+    "device_id": "6e86d623bafa441e5d5eb1ea62d6426d",
+    "domain": "sensor",
+    "entity_id": "sensor.sm_g996b_battery_state",
+    "name": "SM-G996B Battery state",
+    "state": "discharging"
+  },
+  {
+    "area": null,
+    "device_id": "6e86d623bafa441e5d5eb1ea62d6426d",
+    "domain": "sensor",
+    "entity_id": "sensor.sm_g996b_charger_type",
+    "name": "SM-G996B Charger type",
+    "state": "none"
+  },
+  {
+    "area": null,
+    "device_id": "3f08aa8cb00427078364f53b9ebaea62",
+    "domain": "sensor",
+    "entity_id": "sensor.sm_x200_battery_level",
+    "name": "SM-X200 Battery level",
+    "state": "91"
+  },
+  {
+    "area": null,
+    "device_id": "3f08aa8cb00427078364f53b9ebaea62",
+    "domain": "sensor",
+    "entity_id": "sensor.sm_x200_battery_state",
+    "name": "SM-X200 Battery state",
+    "state": "discharging"
+  },
+  {
+    "area": null,
+    "device_id": "3f08aa8cb00427078364f53b9ebaea62",
+    "domain": "sensor",
+    "entity_id": "sensor.sm_x200_charger_type",
+    "name": "SM-X200 Charger type",
+    "state": "none"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "6572ddd3f6405316235c6e48764da804",
+    "domain": "sensor",
+    "entity_id": "sensor.smart_thermostat_x_humidity",
+    "name": "Smart Thermostat X Humidity",
+    "state": "59.89"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "6572ddd3f6405316235c6e48764da804",
+    "domain": "sensor",
+    "entity_id": "sensor.smart_thermostat_x_temperature",
+    "name": "Smart Thermostat X Temperature",
+    "state": "22.05"
+  },
+  {
+    "area": null,
+    "device_id": "a9f1962f3a7821af451c6990d2eb6796",
+    "domain": "sensor",
+    "entity_id": "sensor.sun_next_dawn",
+    "name": "Sun Next dawn",
+    "state": "2026-06-04T02:35:59+00:00"
+  },
+  {
+    "area": null,
+    "device_id": "a9f1962f3a7821af451c6990d2eb6796",
+    "domain": "sensor",
+    "entity_id": "sensor.sun_next_dusk",
+    "name": "Sun Next dusk",
+    "state": "2026-06-03T20:38:05+00:00"
+  },
+  {
+    "area": null,
+    "device_id": "a9f1962f3a7821af451c6990d2eb6796",
+    "domain": "sensor",
+    "entity_id": "sensor.sun_next_midnight",
+    "name": "Sun Next midnight",
+    "state": "2026-06-03T23:37:16+00:00"
+  },
+  {
+    "area": null,
+    "device_id": "a9f1962f3a7821af451c6990d2eb6796",
+    "domain": "sensor",
+    "entity_id": "sensor.sun_next_noon",
+    "name": "Sun Next noon",
+    "state": "2026-06-03T11:37:00+00:00"
+  },
+  {
+    "area": null,
+    "device_id": "a9f1962f3a7821af451c6990d2eb6796",
+    "domain": "sensor",
+    "entity_id": "sensor.sun_next_rising",
+    "name": "Sun Next rising",
+    "state": "2026-06-04T03:23:40+00:00"
+  },
+  {
+    "area": null,
+    "device_id": "a9f1962f3a7821af451c6990d2eb6796",
+    "domain": "sensor",
+    "entity_id": "sensor.sun_next_setting",
+    "name": "Sun Next setting",
+    "state": "2026-06-03T19:50:23+00:00"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "sensor",
+    "entity_id": "sensor.today",
+    "name": "today",
+    "state": "None"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "sensor",
+    "entity_id": "sensor.tomorrow",
+    "name": "tomorrow",
+    "state": "None"
+  },
+  {
+    "area": null,
+    "device_id": "65d807a3cd1334a7441121163e45d062",
+    "domain": "sensor",
+    "entity_id": "sensor.zigbee2mqtt_bridge_version",
+    "name": "Zigbee2MQTT Bridge Version",
+    "state": "2.6.1"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "ac502fda1960d132b7080c7cc2d26624",
+    "domain": "siren",
+    "entity_id": "siren.downstairs_siren",
+    "name": "Downstairs Siren",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "stt",
+    "entity_id": "stt.home_assistant_cloud",
+    "name": "Home Assistant Cloud",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "sun",
+    "entity_id": "sun.sun",
+    "name": "Sun",
+    "state": "above_horizon"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe2463d8",
+    "name": "1st Floor Light",
+    "state": "off"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe2463d8_delayed_power_on_state",
+    "name": "1st Floor Light Delayed power on state",
+    "state": "off"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe2463d8_detach_relay_mode",
+    "name": "1st Floor Light Detach relay mode",
+    "state": "off"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe2463d8_network_indicator",
+    "name": "1st Floor Light Network indicator",
+    "state": "off"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe2463d8_turbo_mode",
+    "name": "1st Floor Light Turbo mode",
+    "state": "off"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "device_id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe55ad14",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "device_id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe55ad14_delayed_power_on_state",
+    "name": "Delayed power on state",
+    "state": "unavailable"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "device_id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe55ad14_detach_relay_mode",
+    "name": "Detach relay mode",
+    "state": "unavailable"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "device_id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe55ad14_network_indicator",
+    "name": "Network indicator",
+    "state": "unavailable"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "device_id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe55ad14_turbo_mode",
+    "name": "Turbo mode",
+    "state": "unavailable"
+  },
+  {
+    "area": "Kitchen",
+    "device_id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe8402f6",
+    "name": "Kitchen Light",
+    "state": "off"
+  },
+  {
+    "area": "Kitchen",
+    "device_id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe8402f6_delayed_power_on_state",
+    "name": "Kitchen Light Delayed power on state",
+    "state": "off"
+  },
+  {
+    "area": "Kitchen",
+    "device_id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe8402f6_detach_relay_mode",
+    "name": "Kitchen Light Detach relay mode",
+    "state": "off"
+  },
+  {
+    "area": "Kitchen",
+    "device_id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe8402f6_network_indicator",
+    "name": "Kitchen Light Network indicator",
+    "state": "on"
+  },
+  {
+    "area": "Kitchen",
+    "device_id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffe8402f6_turbo_mode",
+    "name": "Kitchen Light Turbo mode",
+    "state": "off"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffece4b22",
+    "name": "Entrance Light",
+    "state": "unavailable"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffece4b22_delayed_power_on_state",
+    "name": "Delayed power on state",
+    "state": "unavailable"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffece4b22_detach_relay_mode",
+    "name": "Detach relay mode",
+    "state": "unavailable"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffece4b22_network_indicator",
+    "name": "Network indicator",
+    "state": "unavailable"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "domain": "switch",
+    "entity_id": "switch.0x1cc089fffece4b22_turbo_mode",
+    "name": "Turbo mode",
+    "state": "unavailable"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "03fbb47835731de163962bd256211e27",
+    "domain": "switch",
+    "entity_id": "switch.0xa4c13862ee725dd9_l1",
+    "name": "Lounge",
+    "state": "off"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "03fbb47835731de163962bd256211e27",
+    "domain": "switch",
+    "entity_id": "switch.0xa4c13862ee725dd9_l2",
+    "name": "DiningRoom",
+    "state": "on"
+  },
+  {
+    "area": "Guest Room",
+    "device_id": "e478e13da4cc34a9409d1f3b5c05df07",
+    "domain": "switch",
+    "entity_id": "switch.0xd44867fffe00a5e9",
+    "name": "Guest Room",
+    "state": "off"
+  },
+  {
+    "area": "Liam Room",
+    "device_id": "6e0fa3f4e7c7fde74c7d1854bb1af60a",
+    "domain": "switch",
+    "entity_id": "switch.0xd44867fffe210659",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": "Luke Room",
+    "device_id": "2c77bb975fc8a28bc493202e2d9d8174",
+    "domain": "switch",
+    "entity_id": "switch.0xd44867fffe21238a",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": "Bedroom",
+    "device_id": "35f7fbd61befdb3485f2ded26cca80b1",
+    "domain": "switch",
+    "entity_id": "switch.0xd44867fffe29835d",
+    "name": "Main Room",
+    "state": "off"
+  },
+  {
+    "area": "Living Room",
+    "device_id": "ac502fda1960d132b7080c7cc2d26624",
+    "domain": "switch",
+    "entity_id": "switch.downstairs_motion_detection",
+    "name": "Downstairs Motion detection",
+    "state": "on"
+  },
+  {
+    "area": null,
+    "device_id": "8cf4e649e484a79868515e66dee52b86",
+    "domain": "switch",
+    "entity_id": "switch.front_door_motion_detection",
+    "name": "Front Door Motion detection",
+    "state": "on"
+  },
+  {
+    "area": null,
+    "device_id": "65d807a3cd1334a7441121163e45d062",
+    "domain": "switch",
+    "entity_id": "switch.zigbee2mqtt_bridge_permit_join",
+    "name": "Zigbee2MQTT Bridge Permit join",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "tag",
+    "entity_id": "tag.home_wifi",
+    "name": "Home Wifi",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "todo",
+    "entity_id": "todo.shopping_list",
+    "name": "Shopping List",
+    "state": "0"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "tts",
+    "entity_id": "tts.google_translate_en_com",
+    "name": "Google Translate en com",
+    "state": "unknown"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "tts",
+    "entity_id": "tts.home_assistant_cloud",
+    "name": "Home Assistant Cloud",
+    "state": "unknown"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "fcb12e757357946ed775c59a0194c092",
+    "domain": "update",
+    "entity_id": "update.0x00178801082118a4",
+    "name": "Entrance Light Bulb",
+    "state": "on"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "88e4f581407e975d6e0409e7bad44816",
+    "domain": "update",
+    "entity_id": "update.0x0017880108211b77",
+    "name": "1st Floor Bulb",
+    "state": "on"
+  },
+  {
+    "area": "Landing 1st Floor",
+    "device_id": "2169cc3ee3cdc8fa1917be66ddcedb2a",
+    "domain": "update",
+    "entity_id": "update.0x1cc089fffe2463d8",
+    "name": "1st Floor Light",
+    "state": "on"
+  },
+  {
+    "area": "Landing 2nd Floor",
+    "device_id": "e8af45fe8862dcf351268c97cdb9ba7e",
+    "domain": "update",
+    "entity_id": "update.0x1cc089fffe55ad14",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": "Kitchen",
+    "device_id": "f3c7fb6484b9bd60d7f8e6f0eb017572",
+    "domain": "update",
+    "entity_id": "update.0x1cc089fffe8402f6",
+    "name": "Kitchen Light",
+    "state": "on"
+  },
+  {
+    "area": "Entrance",
+    "device_id": "bd27a3a8aaf73f3657d5d4c5000c2c83",
+    "domain": "update",
+    "entity_id": "update.0x1cc089fffece4b22",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": "Guest Room",
+    "device_id": "e478e13da4cc34a9409d1f3b5c05df07",
+    "domain": "update",
+    "entity_id": "update.0xd44867fffe00a5e9",
+    "name": "Guest Room",
+    "state": "off"
+  },
+  {
+    "area": "Liam Room",
+    "device_id": "6e0fa3f4e7c7fde74c7d1854bb1af60a",
+    "domain": "update",
+    "entity_id": "update.0xd44867fffe210659",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": "Luke Room",
+    "device_id": "2c77bb975fc8a28bc493202e2d9d8174",
+    "domain": "update",
+    "entity_id": "update.0xd44867fffe21238a",
+    "name": null,
+    "state": "unavailable"
+  },
+  {
+    "area": "Bedroom",
+    "device_id": "35f7fbd61befdb3485f2ded26cca80b1",
+    "domain": "update",
+    "entity_id": "update.0xd44867fffe29835d",
+    "name": "Main Room",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": "c585bdbafa78d0b9e6a56d2062743d63",
+    "domain": "update",
+    "entity_id": "update.afvalbeheer_update",
+    "name": "Afvalbeheer update",
+    "state": "on"
+  },
+  {
+    "area": null,
+    "device_id": "d75522809c24d66f9c3d2f516e08086e",
+    "domain": "update",
+    "entity_id": "update.atomic_calendar_revive_update",
+    "name": "Atomic Calendar Revive update",
+    "state": "on"
+  },
+  {
+    "area": null,
+    "device_id": "2fddc2c880c27444d37dac3549865a90",
+    "domain": "update",
+    "entity_id": "update.browser_mod_update",
+    "name": "browser_mod update",
+    "state": "on"
+  },
+  {
+    "area": null,
+    "device_id": "a12229f5c022077e161d921cb0d7c229",
+    "domain": "update",
+    "entity_id": "update.hacs_update",
+    "name": "HACS update",
+    "state": "off"
+  },
+  {
+    "area": null,
+    "device_id": "e0a37a89c369a8065f44ae077e36c1c6",
+    "domain": "weather",
+    "entity_id": "weather.forecast_home",
+    "name": "Forecast Home",
+    "state": "rainy"
+  },
+  {
+    "area": null,
+    "device_id": null,
+    "domain": "zone",
+    "entity_id": "zone.home",
+    "name": "Home",
+    "state": "0"
+  }
+]

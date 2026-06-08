@@ -24,6 +24,35 @@
       - browser_mod_0b6a24d9_ba0dcfa6
     action: browser_mod.close_popup
   mode: single
+- id: doorbell_ring_popup
+  alias: Doorbell — Camera Popup on Ring
+  description: When the front-door doorbell is pressed, pop the live camera onto the tablets.
+  triggers:
+  - trigger: state
+    entity_id: event.front_door_ding
+  conditions:
+  # Ignore the state-restore that happens on HA restart — only react to real rings.
+  - condition: template
+    value_template: >-
+      {{ trigger.from_state is not none
+         and trigger.from_state.state not in ['unknown', 'unavailable']
+         and trigger.to_state.state not in ['unknown', 'unavailable'] }}
+  actions:
+  - action: browser_mod.popup
+    data:
+      browser_id:
+      - browser_mod_ab0fd561_71b7fcdf
+      - browser_mod_0b6a24d9_ba0dcfa6
+      title: 🔔 Someone's at the front door
+      timeout: 30000
+      dismissable: true
+      content:
+        type: picture-entity
+        entity: camera.front_door_live_view
+        camera_view: live
+        show_name: false
+        show_state: false
+  mode: restart
 - id: '1758384034862'
   alias: Bathroom Light
   description: ''

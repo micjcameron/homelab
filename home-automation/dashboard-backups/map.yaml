@@ -1,0 +1,4 @@
+# Backup of the 'map' dashboard (storage-mode / UI-managed).
+# Exported from .storage/lovelace.map. Reference/restore copy — NOT deployed.
+strategy:
+  type: map
