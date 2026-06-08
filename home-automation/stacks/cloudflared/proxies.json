@@ -1,0 +1,7 @@
+{
+  "proxies": [
+    { "name": "proxy1", "hostname": "proxy1.camcosolutions.nl", "host": "192.168.1.50", "port": 4004 },
+    { "name": "proxy2", "hostname": "proxy2.camcosolutions.nl", "host": "192.168.1.50", "port": 4005 },
+    { "name": "proxy3", "hostname": "proxy3.camcosolutions.nl", "host": "192.168.1.50", "port": 4006 }
+  ]
+}

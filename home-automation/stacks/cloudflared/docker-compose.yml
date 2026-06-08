@@ -1,0 +1,14 @@
+services:
+  cloudflared:
+    container_name: cloudflared
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    # host networking so the tunnel can reach local services on the Pi:
+    #   Home Assistant -> http://localhost:8123
+    #   Pi-hole admin  -> http://localhost:80
+    network_mode: host
+    # TUNNEL_TOKEN lives in .env (gitignored). Public hostnames + Access policies
+    # are configured in the Cloudflare Zero Trust dashboard (remotely-managed tunnel).
+    env_file:
+      - /home/micjcameron/homelab/home-automation/stacks/cloudflared/.env
+    command: tunnel --no-autoupdate run

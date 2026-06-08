@@ -67,6 +67,11 @@ export function ServiceCard({ service }: { service: ServiceStatus }) {
             <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${b.cls}`}>
               {b.text}
             </span>
+            {!service.enabled && (
+              <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[10px] uppercase text-slate-500">
+                not deployed
+              </span>
+            )}
           </div>
           <div className="mt-0.5 text-xs text-slate-500">{service.image ?? '—'}</div>
           {service.special && (

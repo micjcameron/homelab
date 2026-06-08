@@ -54,6 +54,19 @@ export interface DeviceDetail {
   topDomains: { domain: string; count: number }[];
 }
 
+export interface Proxy {
+  name: string;
+  hostname: string;
+  host: string;
+  port: number;
+  up: boolean;
+  httpStatus: number | null;
+  detected: string;
+  server: string | null;
+  poweredBy: string | null;
+  title: string | null;
+}
+
 export class ApiError extends Error {
   constructor(
     public status: number,
@@ -104,6 +117,8 @@ export const api = {
     request<ServiceLogs>(`/services/${name}/logs?tail=${tail}`),
 
   system: () => request<SystemHealth>('/system'),
+
+  proxies: () => request<Proxy[]>('/proxies'),
 
   devices: () => request<Device[]>('/network/devices'),
   deviceDetail: (mac: string) =>

@@ -13,6 +13,7 @@ import { AppLayout } from './components/AppLayout';
 import { LoginPage } from './pages/LoginPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { NetworkPage } from './pages/NetworkPage';
+import { ProxiesPage } from './pages/ProxiesPage';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: false } },
@@ -40,9 +41,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <Guarded />,
     children: [
-      { index: true, element: <Navigate to="/home-assistant" replace /> },
-      { path: 'home-assistant', element: <ServicesPage /> },
+      { index: true, element: <Navigate to="/services" replace /> },
+      { path: 'services', element: <ServicesPage /> },
       { path: 'network', element: <NetworkPage /> },
+      { path: 'proxies', element: <ProxiesPage /> },
     ],
   },
 ]);

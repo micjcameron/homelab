@@ -4,8 +4,9 @@ import { useAuth } from '../auth';
 import { SystemBanner } from './SystemBanner';
 
 const tabs = [
-  { to: '/home-assistant', label: 'Home Assistant' },
+  { to: '/services', label: 'Local Services' },
   { to: '/network', label: 'Network' },
+  { to: '/proxies', label: 'Proxies' },
 ];
 
 export function AppLayout({ children }: { children: ReactNode }) {

@@ -10,7 +10,7 @@ export function LoginPage() {
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
-  if (user) nav('/home-assistant', { replace: true });
+  if (user) nav('/services', { replace: true });
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ export function LoginPage() {
     setError('');
     try {
       await login(username, password);
-      nav('/home-assistant', { replace: true });
+      nav('/services', { replace: true });
     } catch (err: any) {
       setError(err?.status === 429 ? 'Too many attempts — wait a bit.' : 'Invalid credentials');
     } finally {

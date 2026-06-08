@@ -19,6 +19,9 @@ export const getConfig = () => {
   servicesJson:
     process.env.SERVICES_JSON || `${repoPath}/home-automation/services.json`,
   scriptsDir: process.env.SCRIPTS_DIR || `${repoPath}/personal-scripts`,
+  proxiesJson:
+    process.env.PROXIES_JSON ||
+    `${repoPath}/home-automation/stacks/cloudflared/proxies.json`,
 
   // Docker control
   dockerBin: process.env.DOCKER_BIN || 'docker',

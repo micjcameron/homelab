@@ -34,5 +34,8 @@ home-automation/homeassistant-config/.storage/
 home-automation/homeassistant-config/.storage.bak*
 home-automation/homeassistant-config/secrets.yaml
 
+# --- Cloudflare tunnel token (Pi-only) ---
+home-automation/stacks/cloudflared/.env
+
 # --- OS noise ---
 .DS_Store
