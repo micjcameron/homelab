@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { DiscoveredDevice } from './network.types';
+import { isInternalIp } from './ip.util';
 
 const MAC_RE = /^([0-9a-f]{2}:){5}[0-9a-f]{2}$/i;
 const BLOCKED_GROUP = 'ui-admin-blocked';
@@ -64,7 +65,9 @@ export class PiholeClient {
           hostname: ip?.name ?? null,
           lastSeen: d.lastQuery ?? ip?.lastSeen ?? null,
         };
-      });
+      })
+      // drop the Pi's own Docker containers / link-local — not real LAN devices
+      .filter((d: DiscoveredDevice) => !isInternalIp(d.ip));
   }
 
   /** Raw Pi-hole record for one device (interface, counts, all IPs, …). */

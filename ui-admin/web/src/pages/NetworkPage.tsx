@@ -4,6 +4,7 @@ import { api, Device } from '../api';
 import { ConfirmDialog } from '../components/ConfirmDialog';
 import { ApproveDialog } from '../components/ApproveDialog';
 import { DeviceDetailPanel } from '../components/DeviceDetailPanel';
+import { ContainersView } from '../components/ContainersView';
 
 const STATUS_ORDER: Record<Device['status'], number> = {
   pending: 0,
@@ -33,11 +34,12 @@ function fmt(ts: string | null) {
   });
 }
 
-export function NetworkPage() {
+function DevicesView() {
   const qc = useQueryClient();
   const [confirmBlock, setConfirmBlock] = useState<Device | null>(null);
   const [approveTarget, setApproveTarget] = useState<Device | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [hideRandom, setHideRandom] = useState(false);
 
   const { data, isLoading } = useQuery({
     queryKey: ['devices'],
@@ -59,12 +61,15 @@ export function NetworkPage() {
 
   if (isLoading) return <div className="text-slate-400">Loading devices…</div>;
 
-  const devices = [...(data ?? [])].sort(
+  const sorted = [...(data ?? [])].sort(
     (a, b) =>
       STATUS_ORDER[a.status] - STATUS_ORDER[b.status] ||
       name(a).localeCompare(name(b)),
   );
-  const pending = devices.filter((d) => d.status === 'pending');
+  // "to review" alarm ignores randomized-MAC churn (your phones) — only real devices.
+  const pending = sorted.filter((d) => d.status === 'pending' && !d.randomMac);
+  const randomCount = sorted.filter((d) => d.randomMac).length;
+  const devices = hideRandom ? sorted.filter((d) => !d.randomMac) : sorted;
 
   const ActionBtns = ({ d }: { d: Device }) => (
     <div className="flex gap-2">
@@ -115,6 +120,23 @@ export function NetworkPage() {
         </div>
       )}
 
+      {randomCount > 0 && (
+        <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-800 bg-slate-900/40 px-3 py-2 text-sm">
+          <span className="text-slate-400">
+            🎲 {randomCount} randomized-MAC device{randomCount > 1 ? 's' : ''} — phones
+            rotating their MAC, not alerted on.
+          </span>
+          <label className="flex cursor-pointer items-center gap-2 text-slate-300">
+            <input
+              type="checkbox"
+              checked={hideRandom}
+              onChange={(e) => setHideRandom(e.target.checked)}
+            />
+            Hide them
+          </label>
+        </div>
+      )}
+
       <div className="overflow-hidden rounded-2xl border border-slate-800">
         <table className="w-full text-sm">
           <thead className="bg-slate-900/70 text-left text-xs uppercase text-slate-500">
@@ -140,6 +162,11 @@ export function NetworkPage() {
                       <div className="flex items-center gap-1.5">
                         <span className="text-slate-500">{isOpen ? '▾' : '▸'}</span>
                         <span className="font-medium text-slate-100">{name(d)}</span>
+                        {d.randomMac && (
+                          <span title="randomized (private) MAC" className="text-xs">
+                            🎲
+                          </span>
+                        )}
                       </div>
                       <div className="pl-5 text-xs text-slate-500">{d.vendor ?? ''}</div>
                     </td>
@@ -209,6 +236,34 @@ export function NetworkPage() {
         }}
         onCancel={() => setApproveTarget(null)}
       />
+    </div>
+  );
+}
+
+export function NetworkPage() {
+  const [tab, setTab] = useState<'devices' | 'containers'>('devices');
+  const subTabs = [
+    { key: 'devices' as const, label: 'Devices' },
+    { key: 'containers' as const, label: 'Containers' },
+  ];
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-1 border-b border-slate-800">
+        {subTabs.map((t) => (
+          <button
+            key={t.key}
+            onClick={() => setTab(t.key)}
+            className={`border-b-2 px-4 py-1.5 text-sm font-medium ${
+              tab === t.key
+                ? 'border-sky-500 text-white'
+                : 'border-transparent text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+      {tab === 'devices' ? <DevicesView /> : <ContainersView />}
     </div>
   );
 }

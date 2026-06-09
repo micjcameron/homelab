@@ -117,4 +117,22 @@ export class DockerCliService {
     const res = await this.run(['version', '--format', '{{.Server.Version}}']);
     return res.code === 0 && res.stdout.trim().length > 0;
   }
+
+  /** All containers (running + stopped) as parsed `docker ps -a` records. */
+  async ps(): Promise<any[]> {
+    const res = await this.run(['ps', '-a', '--no-trunc', '--format', '{{json .}}']);
+    if (res.code !== 0) return [];
+    return res.stdout
+      .trim()
+      .split('\n')
+      .filter(Boolean)
+      .map((line) => {
+        try {
+          return JSON.parse(line);
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean);
+  }
 }

@@ -35,6 +35,10 @@ export class DeviceRepository {
     }
   }
 
+  async removeByMacs(macs: string[]): Promise<void> {
+    if (macs.length) await this.repo.delete(macs);
+  }
+
   async setStatus(mac: string, status: DeviceStatus): Promise<DeviceEntity> {
     const dev = await this.findByMac(mac);
     if (!dev) throw new DatabaseOperationError(`device ${mac} not found`);

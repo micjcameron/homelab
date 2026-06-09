@@ -27,6 +27,11 @@ export class DeviceEntity {
   @Column({ type: 'enum', enum: DeviceStatus, default: DeviceStatus.PENDING })
   status!: DeviceStatus;
 
+  // true if the MAC is locally-administered (randomized privacy MAC) — these churn
+  // constantly on modern phones, so we don't Telegram-alert on them by default.
+  @Column({ type: 'boolean', default: false })
+  randomMac!: boolean;
+
   @CreateDateColumn()
   firstSeen!: Date;
 

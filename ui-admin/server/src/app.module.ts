@@ -16,6 +16,7 @@ import { ServicesModule } from './modules/services/services.module';
 import { SystemModule } from './modules/system/system.module';
 import { HealthModule } from './modules/health/health.module';
 import { NetworkModule } from './modules/network/network.module';
+import { ContainersModule } from './modules/containers/containers.module';
 import { ProxiesModule } from './modules/proxies/proxies.module';
 import { TelegramModule } from './modules/telegram/telegram.module';
 
@@ -53,6 +54,7 @@ import { TelegramModule } from './modules/telegram/telegram.module';
     SystemModule,
     HealthModule,
     NetworkModule,
+    ContainersModule,
     ProxiesModule,
     TelegramModule,
   ],

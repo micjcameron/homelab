@@ -73,6 +73,9 @@ export const getConfig = () => {
     ? parseInt(process.env.NETWATCH_INTERVAL_MS, 10)
     : 5 * 60 * 1000,
   routerIp: process.env.ROUTER_IP || '192.168.1.1',
+  // Randomized (locally-administered) MACs churn constantly on phones — by default
+  // we track them but skip the Telegram alert. Set true to alert on them too.
+  alertRandomMac: process.env.ALERT_ON_RANDOM_MAC === 'true',
   };
 };
 

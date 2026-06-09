@@ -37,6 +37,7 @@ export interface Device {
   hostname: string | null;
   preferredName: string | null;
   status: 'pending' | 'approved' | 'blocked';
+  randomMac: boolean;
   firstSeen: string;
   lastSeen: string | null;
 }
@@ -65,6 +66,17 @@ export interface Proxy {
   server: string | null;
   poweredBy: string | null;
   title: string | null;
+}
+
+export interface Container {
+  id: string;
+  name: string;
+  image: string;
+  state: string;
+  status: string;
+  ports: string;
+  networks: string;
+  runningFor: string;
 }
 
 export class ApiError extends Error {
@@ -119,6 +131,7 @@ export const api = {
   system: () => request<SystemHealth>('/system'),
 
   proxies: () => request<Proxy[]>('/proxies'),
+  containers: () => request<Container[]>('/containers'),
 
   devices: () => request<Device[]>('/network/devices'),
   deviceDetail: (mac: string) =>

@@ -11,11 +11,11 @@ Context dump so we can pick this up later without losing anything.
   - Targets both registered browsers:
     - `browser_mod_ab0fd561_71b7fcdf`  ← active (seen recently)
     - `browser_mod_0b6a24d9_ba0dcfa6`  ← dormant (last seen May 4)
-- **Blocked on:** both tablets were `unavailable` (offline). User is charging a tablet.
-  Can't see a popup until a tablet is connected.
-- HA long-lived token was reset during an earlier deploy bug; **new token is already in
-  `scripts/ha-snapshot.py`** (HA_TOKEN default) and `personal-scripts/bin-reminder/bin-reminder.sh`.
-- Nothing is committed to git yet (all changes in working tree).
+- **Blocked on:** waiting on a **USB-C cable** to physically mount the tablet on the wall.
+  Once mounted + powered: do the Fully Kiosk setup, register the tablet's browser_mod id,
+  add it to the automation, and test.
+- HA long-lived token is in `scripts/ha-snapshot.py` (HA_TOKEN default) and `bin-reminder.sh`.
+- All committed to git (main).
 
 ## Next steps when the tablet is connected
 
@@ -62,8 +62,5 @@ Context dump so we can pick this up later without losing anything.
 
 ## Loose ends (not doorbell, but noted)
 
-- [ ] User's phone app / tablets may have been logged out by the auth-store incident —
-      re-login with HA password if so.
-- [ ] `bin-reminder.sh` new token only takes effect on the Pi after `cd ~/homelab && git pull`
-      (needs a commit first), or copy the file over.
-- [ ] Nothing committed yet — when happy, commit the whole session's work.
+- [ ] `bin-reminder.sh`'s new HA token only takes effect on the Pi once `~/homelab` is
+      updated there (`cd ~/homelab && git pull`), or copy the file over.

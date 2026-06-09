@@ -12,6 +12,7 @@ import { PiholeClient } from './pihole.client';
 import { DeviceEntity } from './device.entity';
 import { DeviceStatus, DiscoveredDevice } from './network.types';
 import { TelegramApi, InlineKeyboard } from '../telegram/telegram.api';
+import { isInternalIp } from './ip.util';
 
 @Injectable()
 export class NetworkService implements OnModuleInit, OnModuleDestroy {
@@ -21,6 +22,7 @@ export class NetworkService implements OnModuleInit, OnModuleDestroy {
   private readonly intervalMs: number;
   private readonly chatId: string;
   private readonly routerIp: string;
+  private readonly alertRandomMac: boolean;
 
   constructor(
     private readonly config: ConfigService,
@@ -33,6 +35,13 @@ export class NetworkService implements OnModuleInit, OnModuleDestroy {
     this.intervalMs = this.config.get<number>('app.networkWatchIntervalMs', 300_000);
     this.chatId = this.config.get<string>('app.telegramChatId', '');
     this.routerIp = this.config.get<string>('app.routerIp', '192.168.1.1');
+    this.alertRandomMac = this.config.get<boolean>('app.alertRandomMac', false);
+  }
+
+  /** Locally-administered (randomized privacy) MAC — 2nd bit of the first octet. */
+  private isRandomMac(mac: string): boolean {
+    const first = parseInt(mac.split(':')[0], 16);
+    return Number.isFinite(first) && (first & 0x02) !== 0;
   }
 
   async onModuleInit() {
@@ -87,6 +96,15 @@ export class NetworkService implements OnModuleInit, OnModuleDestroy {
   }
 
   async sync(): Promise<void> {
+    // prune any stale Docker-container / link-local rows from before the IP filter
+    const stale = (await this.devices.findAll())
+      .filter((d) => isInternalIp(d.ip))
+      .map((d) => d.mac);
+    if (stale.length) {
+      await this.devices.removeByMacs(stale);
+      this.logger.log(`Pruned ${stale.length} internal/Docker device rows.`);
+    }
+
     const discovered = await this.pihole.getDevices();
     const baseline = (await this.devices.count()) === 0;
     if (baseline)
@@ -98,21 +116,28 @@ export class NetworkService implements OnModuleInit, OnModuleDestroy {
         existing.ip = d.ip;
         existing.hostname = d.hostname ?? existing.hostname;
         existing.vendor = d.vendor ?? existing.vendor;
+        existing.randomMac = this.isRandomMac(d.mac);
         existing.lastSeen = d.lastSeen ? new Date(d.lastSeen * 1000) : new Date();
         await this.devices.save(existing);
         continue;
       }
       const status = baseline ? DeviceStatus.APPROVED : DeviceStatus.PENDING;
+      const randomMac = this.isRandomMac(d.mac);
       const dev = await this.devices.save({
         mac: d.mac,
         vendor: d.vendor,
         ip: d.ip,
         hostname: d.hostname,
         status,
+        randomMac,
         lastSeen: d.lastSeen ? new Date(d.lastSeen * 1000) : new Date(),
         approvedAt: status === DeviceStatus.APPROVED ? new Date() : null,
       });
-      if (status === DeviceStatus.PENDING) await this.alertNewDevice(dev);
+      // Only ping for genuinely new devices — and skip the randomized-MAC churn
+      // (your own phones rotating MACs) unless explicitly told to alert on them.
+      if (status === DeviceStatus.PENDING && (!randomMac || this.alertRandomMac)) {
+        await this.alertNewDevice(dev);
+      }
     }
   }
 
