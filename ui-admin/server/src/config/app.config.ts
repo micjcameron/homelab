@@ -76,6 +76,15 @@ export const getConfig = () => {
   // Randomized (locally-administered) MACs churn constantly on phones — by default
   // we track them but skip the Telegram alert. Set true to alert on them too.
   alertRandomMac: process.env.ALERT_ON_RANDOM_MAC === 'true',
+
+  // Cloudflare Access — gate proxies behind an email allowlist from the UI.
+  // Same API + policy name as home-automation/stacks/cloudflared/cf-access.sh,
+  // so gates created in either place show up in both. Optional: if the token /
+  // account id are unset, the Proxies page shows gating as unavailable.
+  cfApiToken: process.env.CF_API_TOKEN || '',
+  cfAccountId: process.env.CF_ACCOUNT_ID || '',
+  cfAccessEnabled: !!process.env.CF_API_TOKEN && !!process.env.CF_ACCOUNT_ID,
+  cfSessionDuration: process.env.CF_SESSION_DURATION || '168h',
   };
 };
 

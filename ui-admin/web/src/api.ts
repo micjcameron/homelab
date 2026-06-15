@@ -55,6 +55,11 @@ export interface DeviceDetail {
   topDomains: { domain: string; count: number }[];
 }
 
+export interface AccessGate {
+  enabled: boolean;
+  emails: string[];
+}
+
 export interface Proxy {
   name: string;
   hostname: string;
@@ -66,6 +71,8 @@ export interface Proxy {
   server: string | null;
   poweredBy: string | null;
   title: string | null;
+  gate: AccessGate;
+  accessConfigured: boolean;
 }
 
 export interface Container {
@@ -131,6 +138,15 @@ export const api = {
   system: () => request<SystemHealth>('/system'),
 
   proxies: () => request<Proxy[]>('/proxies'),
+  gateProxy: (name: string, emails: string[]) =>
+    request<AccessGate>(`/proxies/${encodeURIComponent(name)}/gate`, {
+      method: 'POST',
+      body: JSON.stringify({ emails }),
+    }),
+  ungateProxy: (name: string) =>
+    request<AccessGate>(`/proxies/${encodeURIComponent(name)}/gate`, {
+      method: 'DELETE',
+    }),
   containers: () => request<Container[]>('/containers'),
 
   devices: () => request<Device[]>('/network/devices'),

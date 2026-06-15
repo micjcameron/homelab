@@ -1,5 +1,116 @@
-import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api, Proxy } from '../api';
+
+const parseEmails = (s: string): string[] =>
+  s
+    .split(/[\s,]+/)
+    .map((e) => e.trim())
+    .filter(Boolean);
+
+function GateControl({ p }: { p: Proxy }) {
+  const qc = useQueryClient();
+  const [editing, setEditing] = useState(false);
+  const [emails, setEmails] = useState(p.gate.emails.join(', '));
+  const invalidate = () => qc.invalidateQueries({ queryKey: ['proxies'] });
+
+  const gateMut = useMutation({
+    mutationFn: (list: string[]) => api.gateProxy(p.name, list),
+    onSuccess: () => {
+      setEditing(false);
+      invalidate();
+    },
+  });
+  const ungateMut = useMutation({
+    mutationFn: () => api.ungateProxy(p.name),
+    onSuccess: () => {
+      setEditing(false);
+      invalidate();
+    },
+  });
+  const busy = gateMut.isPending || ungateMut.isPending;
+  const err = (gateMut.error || ungateMut.error) as Error | null;
+
+  if (!p.accessConfigured) {
+    return (
+      <div className="mt-3 text-xs text-slate-600">
+        🔒 Access gating unavailable — set CF_API_TOKEN / CF_ACCOUNT_ID.
+      </div>
+    );
+  }
+
+  if (!editing) {
+    return (
+      <div className="mt-3 flex items-center justify-between gap-2">
+        <div className="min-w-0 text-sm">
+          {p.gate.enabled ? (
+            <div>
+              <span className="font-medium text-amber-300">
+                🔒 Gated · {p.gate.emails.length} allowed
+              </span>
+              <div className="truncate text-xs text-slate-500">
+                {p.gate.emails.join(', ')}
+              </div>
+            </div>
+          ) : (
+            <span className="text-slate-400">🔓 Public — anyone</span>
+          )}
+        </div>
+        <button
+          onClick={() => {
+            setEmails(p.gate.emails.join(', '));
+            setEditing(true);
+          }}
+          className="shrink-0 rounded-lg border border-slate-700 px-2 py-1 text-xs text-slate-300 hover:bg-slate-800"
+        >
+          {p.gate.enabled ? 'Edit gate' : 'Gate'}
+        </button>
+      </div>
+    );
+  }
+
+  const list = parseEmails(emails);
+  return (
+    <div className="mt-3 space-y-2 rounded-lg border border-slate-800 bg-black/30 p-3">
+      <label className="block text-[11px] uppercase tracking-wide text-slate-500">
+        Allowed emails (comma or space separated)
+      </label>
+      <textarea
+        value={emails}
+        onChange={(e) => setEmails(e.target.value)}
+        rows={2}
+        placeholder="me@example.com, po@example.com"
+        className="w-full rounded-lg border border-slate-700 bg-slate-950 px-2 py-1 text-sm text-slate-100 outline-none focus:border-sky-600"
+      />
+      {err && <div className="text-xs text-rose-400">{err.message}</div>}
+      <div className="flex flex-wrap gap-2">
+        <button
+          disabled={busy || list.length === 0}
+          onClick={() => gateMut.mutate(list)}
+          className="rounded-lg border border-emerald-700 px-3 py-1 text-xs text-emerald-300 hover:bg-emerald-900/40 disabled:opacity-40"
+        >
+          {busy ? 'Saving…' : p.gate.enabled ? 'Update gate' : 'Gate it'}
+        </button>
+        {p.gate.enabled && (
+          <button
+            disabled={busy}
+            onClick={() => ungateMut.mutate()}
+            className="rounded-lg border border-rose-700 px-3 py-1 text-xs text-rose-300 hover:bg-rose-900/40 disabled:opacity-40"
+          >
+            Remove gate
+          </button>
+        )}
+        <button
+          disabled={busy}
+          onClick={() => setEditing(false)}
+          className="rounded-lg border border-slate-700 px-3 py-1 text-xs text-slate-300 hover:bg-slate-800 disabled:opacity-40"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function ProxyCard({ p }: { p: Proxy }) {
   return (
@@ -55,6 +166,8 @@ function ProxyCard({ p }: { p: Proxy }) {
           </div>
         )}
       </div>
+
+      <GateControl p={p} />
     </div>
   );
 }

@@ -1,7 +1,8 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { readFile } from 'fs/promises';
-import { ProxyDefinition, ProxyStatus } from './proxies.types';
+import { AccessGate, ProxyDefinition, ProxyStatus } from './proxies.types';
+import { CloudflareAccessService } from './cloudflare-access.service';
 
 interface Detection {
   detected: string;
@@ -13,7 +14,10 @@ export class ProxiesService {
   private readonly logger = new Logger(ProxiesService.name);
   private readonly proxiesJson: string;
 
-  constructor(private readonly config: ConfigService) {
+  constructor(
+    private readonly config: ConfigService,
+    private readonly access: CloudflareAccessService,
+  ) {
     this.proxiesJson = this.config.get<string>('app.proxiesJson')!;
   }
 
@@ -30,11 +34,37 @@ export class ProxiesService {
 
   async list(): Promise<ProxyStatus[]> {
     const defs = await this.definitions();
-    return Promise.all(defs.map((d) => this.probe(d)));
+    const [statuses, gates] = await Promise.all([
+      Promise.all(defs.map((d) => this.probe(d))),
+      this.access.gateMap(defs.map((d) => d.hostname)),
+    ]);
+    return statuses.map((s) => ({
+      ...s,
+      gate: gates[s.hostname] ?? { enabled: false, emails: [] },
+      accessConfigured: this.access.enabled,
+    }));
+  }
+
+  /** Resolve a proxy NAME (from proxies.json) or pass through a full hostname. */
+  private async resolveHostname(nameOrHost: string): Promise<string> {
+    if (nameOrHost.includes('.')) return nameOrHost;
+    const def = (await this.definitions()).find((d) => d.name === nameOrHost);
+    if (!def) throw new NotFoundException(`Unknown proxy '${nameOrHost}'`);
+    return def.hostname;
+  }
+
+  async setGate(nameOrHost: string, emails: string[]): Promise<AccessGate> {
+    return this.access.gate(await this.resolveHostname(nameOrHost), emails);
+  }
+
+  async removeGate(nameOrHost: string): Promise<AccessGate> {
+    return this.access.ungate(await this.resolveHostname(nameOrHost));
   }
 
   /** Hit http://host:port/ and best-effort identify what's answering. */
-  private async probe(def: ProxyDefinition): Promise<ProxyStatus> {
+  private async probe(
+    def: ProxyDefinition,
+  ): Promise<Omit<ProxyStatus, 'gate' | 'accessConfigured'>> {
     const url = `http://${def.host}:${def.port}/`;
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 3000);
