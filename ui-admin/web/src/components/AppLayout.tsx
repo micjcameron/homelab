@@ -7,6 +7,7 @@ const tabs = [
   { to: '/services', label: 'Local Services' },
   { to: '/network', label: 'Network' },
   { to: '/proxies', label: 'Proxies' },
+  { to: '/settings', label: 'Settings' },
 ];
 
 export function AppLayout({ children }: { children: ReactNode }) {

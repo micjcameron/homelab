@@ -18,6 +18,7 @@ import { HealthModule } from './modules/health/health.module';
 import { NetworkModule } from './modules/network/network.module';
 import { ContainersModule } from './modules/containers/containers.module';
 import { ProxiesModule } from './modules/proxies/proxies.module';
+import { SettingsModule } from './modules/settings/settings.module';
 import { TelegramModule } from './modules/telegram/telegram.module';
 
 @Module({
@@ -56,6 +57,7 @@ import { TelegramModule } from './modules/telegram/telegram.module';
     NetworkModule,
     ContainersModule,
     ProxiesModule,
+    SettingsModule,
     TelegramModule,
   ],
   providers: [

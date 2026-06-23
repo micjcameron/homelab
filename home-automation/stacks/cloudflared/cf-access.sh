@@ -77,8 +77,10 @@ cmd_gate() {
   host="$(resolve_host "${1:?usage: gate <proxy|hostname> <email,email,...>}")"
   emails="${2:?need a comma-separated email list}"
 
-  # [{"email":{"email":"a@b.com"}}, ...] from the comma list (whitespace-tolerant)
-  include="$(tr ',' '\n' <<<"$emails" | tr -d '[:space:]' | grep -v '^$' \
+  # [{"email":{"email":"a@b.com"}}, ...] from the comma list (whitespace-tolerant).
+  # NOTE: trim with [[:blank:]] (space/tab only) — NOT [:space:], which eats the
+  # newlines that separate the emails and collapses them into one bad entry.
+  include="$(tr ',' '\n' <<<"$emails" | sed 's/[[:blank:]]//g' | grep -v '^$' \
              | jq -R '{email:{email:.}}' | jq -s '.')"
   [[ "$(jq 'length' <<<"$include")" -gt 0 ]] || { echo "❌ no valid emails given" >&2; exit 1; }
 

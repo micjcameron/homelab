@@ -86,6 +86,13 @@ export interface Container {
   runningFor: string;
 }
 
+export interface CloudflareSettings {
+  configured: boolean;
+  source: 'db' | 'env' | 'none';
+  tokenPreview: string | null;
+  accountId: string | null;
+}
+
 export class ApiError extends Error {
   constructor(
     public status: number,
@@ -148,6 +155,17 @@ export const api = {
       method: 'DELETE',
     }),
   containers: () => request<Container[]>('/containers'),
+
+  cloudflareSettings: () => request<CloudflareSettings>('/settings/cloudflare'),
+  updateCloudflareSettings: (body: { token?: string; accountId?: string }) =>
+    request<CloudflareSettings>('/settings/cloudflare', {
+      method: 'PUT',
+      body: JSON.stringify(body),
+    }),
+  testCloudflareSettings: () =>
+    request<{ ok: boolean; message: string }>('/settings/cloudflare/test', {
+      method: 'POST',
+    }),
 
   devices: () => request<Device[]>('/network/devices'),
   deviceDetail: (mac: string) =>

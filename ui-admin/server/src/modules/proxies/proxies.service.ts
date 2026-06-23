@@ -34,14 +34,15 @@ export class ProxiesService {
 
   async list(): Promise<ProxyStatus[]> {
     const defs = await this.definitions();
-    const [statuses, gates] = await Promise.all([
+    const [statuses, gates, accessConfigured] = await Promise.all([
       Promise.all(defs.map((d) => this.probe(d))),
       this.access.gateMap(defs.map((d) => d.hostname)),
+      this.access.isConfigured(),
     ]);
     return statuses.map((s) => ({
       ...s,
       gate: gates[s.hostname] ?? { enabled: false, emails: [] },
-      accessConfigured: this.access.enabled,
+      accessConfigured,
     }));
   }
 

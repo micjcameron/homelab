@@ -14,6 +14,7 @@ import { LoginPage } from './pages/LoginPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { NetworkPage } from './pages/NetworkPage';
 import { ProxiesPage } from './pages/ProxiesPage';
+import { SettingsPage } from './pages/SettingsPage';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: false } },
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
       { path: 'services', element: <ServicesPage /> },
       { path: 'network', element: <NetworkPage /> },
       { path: 'proxies', element: <ProxiesPage /> },
+      { path: 'settings', element: <SettingsPage /> },
     ],
   },
 ]);

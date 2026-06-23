@@ -29,7 +29,7 @@ case "$MODE" in
     ;;
   tomorrow)
     START=$(date -d "tomorrow 00:00" -Iseconds)
-    END=$(date -d "day after tomorrow 00:00" -Iseconds)
+    END=$(date -d "tomorrow + 1 day 00:00" -Iseconds)
     HEADING="🗑️ Bin day tomorrow"
     ;;
 esac

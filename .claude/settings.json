@@ -2,6 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(ssh -o BatchMode=yes micjcameron@192.168.1.128 ' *)"
+    ],
+    "additionalDirectories": [
+      "/Users/micjcameron/Desktop/Work/Repos/dutchys/frontend/src/app/checkout"
     ]
   }
 }
