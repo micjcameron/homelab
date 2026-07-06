@@ -4,6 +4,7 @@
     { "name": "proxy2", "hostname": "proxy2.camcosolutions.nl", "host": "192.168.1.50", "port": 4005 },
     { "name": "proxy3", "hostname": "proxy3.camcosolutions.nl", "host": "192.168.1.50", "port": 4006 },
     { "name": "dutchies", "hostname": "dutchies.camcosolutions.nl", "host": "192.168.1.128", "port": 4007 },
-    { "name": "dutchies-api", "hostname": "dutchies-api.camcosolutions.nl", "host": "192.168.1.128", "port": 4008 }
+    { "name": "dutchies-api", "hostname": "dutchies-api.camcosolutions.nl", "host": "192.168.1.128", "port": 4008 },
+    { "name": "invoice", "hostname": "invoice.camcosolutions.nl", "host": "192.168.1.128", "port": 8091 }
   ]
 }

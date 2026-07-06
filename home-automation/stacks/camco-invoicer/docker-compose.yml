@@ -1,0 +1,5 @@
+# camco-invoicer — invoicing web app (own repo, deployed at ~/camco-invoicer).
+# The real compose lives in that repo; this stack file just includes it so
+# ui-admin (services.json) can control it like any other stack.
+include:
+  - /home/micjcameron/camco-invoicer/docker-compose.yml
