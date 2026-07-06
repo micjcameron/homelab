@@ -29,11 +29,6 @@
       "special_check": "pihole_dns"
     },
     {
-      "name": "node-red",
-      "enabled": true,
-      "order": 60
-    },
-    {
       "name": "ui-admin",
       "enabled": true,
       "order": 70
