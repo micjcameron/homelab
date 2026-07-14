@@ -37,5 +37,14 @@ home-automation/homeassistant-config/secrets.yaml
 # --- Cloudflare tunnel token (Pi-only) ---
 home-automation/stacks/cloudflared/.env
 
+# --- Personal-scripts secrets: Telegram bot tokens + HA long-lived token ---
+# --- (Pi/Mac only, never pushed). Template lives in personal-scripts/.env.example. ---
+personal-scripts/.env
+
+# --- Access/infra secrets (SSH passwords, license/recovery keys). Local only. ---
+# --- Belongs in a password manager; this is a stopgap that never gets pushed. ---
+access-secrets.local.md
+*.local.md
+
 # --- OS noise ---
 .DS_Store
