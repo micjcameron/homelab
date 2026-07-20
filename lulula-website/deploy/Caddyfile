@@ -1,0 +1,24 @@
+# Caddy config for lulula.nl — serves the static build with automatic HTTPS.
+# Install: place at /etc/caddy/Caddyfile on the VPS, then `sudo systemctl reload caddy`.
+# Caddy fetches a Let's Encrypt cert automatically once DNS points here and 80/443 are open.
+
+lulula.nl {
+	root * /var/www/lulula
+	encode gzip zstd
+	file_server
+
+	# Fingerprinted Next.js assets never change — cache them hard.
+	@assets path /_next/static/*
+	header @assets Cache-Control "public, max-age=31536000, immutable"
+
+	# Serve the exported 404 page for unknown paths.
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+}
+
+# Send www → apex so there's one canonical URL (good for SEO).
+www.lulula.nl {
+	redir https://lulula.nl{uri} permanent
+}

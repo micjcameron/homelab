@@ -13,6 +13,63 @@ views:
       - type: grid
         cards:
           - type: heading
+            heading: Quick actions
+            heading_style: title
+          - type: button
+            entity: script.night_time
+            name: Night Time
+            icon: mdi:weather-night
+            icon_height: 64px
+            show_state: false
+            grid_options: { columns: 6 }
+            tap_action:
+              action: perform-action
+              perform_action: script.night_time
+          - type: button
+            entity: script.leaving_home
+            name: Leaving Home
+            icon: mdi:home-export-outline
+            icon_height: 64px
+            show_state: false
+            grid_options: { columns: 6 }
+            tap_action:
+              action: perform-action
+              perform_action: script.leaving_home
+          - type: button
+            entity: script.good_morning
+            name: Good Morning
+            icon: mdi:weather-sunset-up
+            icon_height: 64px
+            show_state: false
+            grid_options: { columns: 6 }
+            tap_action:
+              action: perform-action
+              perform_action: script.good_morning
+          - type: button
+            entity: script.movie_night
+            name: Movie Night
+            icon: mdi:movie-open
+            icon_height: 64px
+            show_state: false
+            grid_options: { columns: 6 }
+            tap_action:
+              action: perform-action
+              perform_action: script.movie_night
+
+      - type: grid
+        cards:
+          - type: heading
+            heading: What's on
+          - type: calendar
+            initial_view: listWeek
+            entities:
+              - calendar.cameronhousehold9291_gmail_com
+              - calendar.micjcameron_gmail_com
+              - calendar.afvalbeheer_avri
+
+      - type: grid
+        cards:
+          - type: heading
             heading: Welcome home
             heading_style: title
           - type: weather-forecast
@@ -20,18 +77,23 @@ views:
             show_current: true
             show_forecast: true
             forecast_type: daily
-          - type: tile
-            entity: person.michael_cameron
-            name: Michael
 
       - type: grid
         cards:
           - type: heading
-            heading: Climate
-            icon: mdi:thermostat
-          - type: thermostat
-            entity: climate.smart_thermostat_x
-            name: Lounge
+            heading: Pool
+            icon: mdi:pool
+          # Repointed 2026-07-01 to the new with-neutral relay (Outside Elec).
+          - type: tile
+            entity: switch.0x00be44fffe3a0b30
+            name: Pool Filter
+            icon: mdi:pump
+            features: [{ type: toggle }]
+          - type: tile
+            entity: automation.pool_filter_schedule
+            name: Schedule 22:00–06:00
+            icon: mdi:clock-outline
+            features: [{ type: toggle }]
 
       - type: grid
         cards:
@@ -54,6 +116,44 @@ views:
             entity: sensor.papier
             name: Papier
             icon: mdi:newspaper
+
+      - type: grid
+        cards:
+          - type: heading
+            heading: Climate
+            icon: mdi:thermostat
+          - type: thermostat
+            entity: climate.smart_thermostat_x
+            name: Lounge
+
+  # ─────────────────────────────────────────────────────────── Scenes
+  - title: Scenes
+    path: scenes
+    icon: mdi:gesture-tap-button
+    type: sections
+    max_columns: 2
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Scenes
+            heading_style: title
+          - type: button
+            entity: script.night_time
+            name: Night Time
+            icon: mdi:weather-night
+            show_state: false
+            tap_action:
+              action: perform-action
+              perform_action: script.night_time
+          - type: button
+            entity: script.leaving_home
+            name: Leaving Home
+            icon: mdi:home-export-outline
+            show_state: false
+            tap_action:
+              action: perform-action
+              perform_action: script.leaving_home
 
   # ─────────────────────────────────────────────────────────── Lights
   - title: Lights
@@ -80,21 +180,32 @@ views:
             icon: mdi:countertop
           - type: tile
             entity: switch.0x1cc089fffece4b22
-            name: Entrance
+            name: Entrance Hall
             icon: mdi:door
           - type: tile
             entity: light.0x00178801082118a4
             name: Entrance Bulb
             features: [{ type: light-brightness }]
-          - type: tile
-            entity: light.0x847127fffe7f0dec
-            name: Bathroom
-            features: [{ type: light-brightness }]
 
       - type: grid
         cards:
           - type: heading
-            heading: Upstairs
+            heading: Bathroom
+          # Smart bulb behind a smart relay — control the bulb; the relay stays
+          # powered (motion automation re-powers it if someone flips it off).
+          - type: tile
+            entity: light.0x847127fffe7f0dec
+            name: Bathroom Bulb
+            features: [{ type: light-brightness }]
+          - type: tile
+            entity: switch.0xe406bffffeac64b6
+            name: Bathroom Switch (relay)
+            icon: mdi:light-switch
+
+      - type: grid
+        cards:
+          - type: heading
+            heading: Upstairs & Bedrooms
           - type: tile
             entity: light.0x0017880108211b77
             name: 1st Floor Bulb
@@ -104,34 +215,27 @@ views:
             name: 1st Floor Light
             icon: mdi:stairs
           - type: tile
-            entity: switch.0x1cc089fffe55ad14
-            name: 2nd Floor Light
-            icon: mdi:stairs-up
-          - type: tile
             entity: switch.0xd44867fffe29835d
-            name: Bedroom
+            name: Main Room
             icon: mdi:bed
-
-      - type: grid
-        cards:
-          - type: heading
-            heading: Kids & Guest
-          - type: tile
-            entity: light.0x847127fffe7f0b28
-            name: Liam Light
-            features: [{ type: light-brightness }]
-          - type: tile
-            entity: switch.0xd44867fffe210659
-            name: Liam Room
-            icon: mdi:teddy-bear
-          - type: tile
-            entity: switch.0xd44867fffe21238a
-            name: Luke Room
-            icon: mdi:teddy-bear
           - type: tile
             entity: switch.0xd44867fffe00a5e9
             name: Guest Room
             icon: mdi:bed-king
+
+      - type: grid
+        cards:
+          - type: heading
+            heading: Outdoor
+          - type: tile
+            entity: switch.0xc09b9efffe666ed6
+            name: Front Door Light
+            icon: mdi:coach-lamp
+          - type: tile
+            entity: switch.0x00be44fffe3a0b30
+            name: Outside Elec (pool)
+            icon: mdi:pump
+            features: [{ type: toggle }]
 
   # ─────────────────────────────────────────────────────────── Cameras
   - title: Cameras
@@ -163,3 +267,23 @@ views:
             entity: camera.downstairs_live_view
             camera_view: live
             name: Downstairs
+
+  # ─────────────────────────────────────────────────────────── Calendar
+  - title: Calendar
+    path: calendar
+    icon: mdi:calendar-month
+    type: sections
+    max_columns: 2
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: What's on
+            heading_style: title
+          - type: calendar
+            initial_view: listWeek
+            grid_options: { columns: 12 }
+            entities:
+              - calendar.cameronhousehold9291_gmail_com
+              - calendar.micjcameron_gmail_com
+              - calendar.afvalbeheer_avri

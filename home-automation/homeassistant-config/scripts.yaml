@@ -1,0 +1,105 @@
+# Scene scripts, called from the wall dashboard "Scenes" tab.
+# "All indoor lights" = every room switch + bulb, EXCLUDING the Front Door Light
+# (runs on its own dusk automation) and Outside Elec / pool (runs on a schedule).
+
+night_time:
+  alias: Night Time
+  icon: mdi:weather-night
+  # Everything indoors off. (Future: carve out the bathroom once its setup allows.)
+  sequence:
+  - action: homeassistant.turn_off
+    target:
+      entity_id:
+      - switch.0xa4c13862ee725dd9_l1   # Lounge
+      - switch.0xa4c13862ee725dd9_l2   # Dining Room
+      - switch.0x1cc089fffe8402f6      # Kitchen
+      - switch.0x1cc089fffece4b22      # Entrance Hall
+      - switch.0x1cc089fffe2463d8      # 1st Floor Light
+      - switch.0xd44867fffe29835d      # Main Room
+      - switch.0xd44867fffe00a5e9      # Guest Room
+      - switch.0xe406bffffeac64b6      # Bathroom Switch
+      - light.0x00178801082118a4       # Entrance Bulb
+      - light.0x0017880108211b77       # 1st Floor Bulb
+      - light.0x847127fffe7f0dec       # Bathroom Bulb
+
+leaving_home:
+  alias: Leaving Home
+  icon: mdi:home-export-outline
+  # After dark: leave the Lounge on (looks occupied), everything else off.
+  # In daylight: everything off.
+  sequence:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id:
+          - switch.0xa4c13862ee725dd9_l2   # Dining Room
+          - switch.0x1cc089fffe8402f6      # Kitchen
+          - switch.0x1cc089fffece4b22      # Entrance Hall
+          - switch.0x1cc089fffe2463d8      # 1st Floor Light
+          - switch.0xd44867fffe29835d      # Main Room
+          - switch.0xd44867fffe00a5e9      # Guest Room
+          - switch.0xe406bffffeac64b6      # Bathroom Switch
+          - light.0x00178801082118a4       # Entrance Bulb
+          - light.0x0017880108211b77       # 1st Floor Bulb
+          - light.0x847127fffe7f0dec       # Bathroom Bulb
+      - action: switch.turn_on
+        target:
+          entity_id: switch.0xa4c13862ee725dd9_l1   # Lounge stays on
+    default:
+    - action: homeassistant.turn_off
+      target:
+        entity_id:
+        - switch.0xa4c13862ee725dd9_l1
+        - switch.0xa4c13862ee725dd9_l2
+        - switch.0x1cc089fffe8402f6
+        - switch.0x1cc089fffece4b22
+        - switch.0x1cc089fffe2463d8
+        - switch.0xd44867fffe29835d
+        - switch.0xd44867fffe00a5e9
+        - switch.0xe406bffffeac64b6
+        - light.0x00178801082118a4
+        - light.0x0017880108211b77
+        - light.0x847127fffe7f0dec
+
+# --- STARTER scenes (swap for your real routines) ---
+
+good_morning:
+  alias: Good Morning
+  icon: mdi:weather-sunset-up
+  # Morning path lights on: kitchen, entrance hall, 1st floor + bulbs.
+  sequence:
+  - action: homeassistant.turn_on
+    target:
+      entity_id:
+      - switch.0x1cc089fffe8402f6      # Kitchen
+      - switch.0x1cc089fffece4b22      # Entrance Hall
+      - switch.0x1cc089fffe2463d8      # 1st Floor Light
+      - light.0x00178801082118a4       # Entrance Bulb
+      - light.0x0017880108211b77       # 1st Floor Bulb
+
+movie_night:
+  alias: Movie Night
+  icon: mdi:movie-open
+  # Everything off, only the Kitchen left on.
+  sequence:
+  - action: homeassistant.turn_off
+    target:
+      entity_id:
+      - switch.0xa4c13862ee725dd9_l1   # Lounge
+      - switch.0xa4c13862ee725dd9_l2   # Dining Room
+      - switch.0x1cc089fffece4b22      # Entrance Hall
+      - switch.0x1cc089fffe2463d8      # 1st Floor Light
+      - switch.0xd44867fffe29835d      # Main Room
+      - switch.0xd44867fffe00a5e9      # Guest Room
+      - switch.0xe406bffffeac64b6      # Bathroom Switch
+      - light.0x00178801082118a4       # Entrance Bulb
+      - light.0x0017880108211b77       # 1st Floor Bulb
+      - light.0x847127fffe7f0dec       # Bathroom Bulb
+  - action: switch.turn_on
+    target:
+      entity_id: switch.0x1cc089fffe8402f6   # Kitchen stays on

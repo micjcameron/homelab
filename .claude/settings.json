@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ssh -o BatchMode=yes micjcameron@192.168.1.128 ' *)"
+      "Bash(ssh -o BatchMode=yes micjcameron@192.168.1.128 ' *)",
+      "Bash(ssh -o ConnectTimeout=8 micjcameron@192.168.1.128 ' *)",
+      "Bash(ssh -o *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000)"
     ],
     "additionalDirectories": [
       "/Users/micjcameron/Desktop/Work/Repos/dutchys/frontend/src/app/checkout"

@@ -1,48 +1,29 @@
-- id: '1757506664118'
-  alias: Ring Motion Popup
-  description: Show live Ring camera popup when motion detected
-  triggers:
-  - entity_id: event.front_door_motion
-    from: 'off'
-    to: 'on'
-    trigger: state
-  conditions: []
-  actions:
-  - data:
-      title: Front Door Motion
-      card:
-        type: picture-entity
-        entity: camera.front_door_live_view
-        camera_view: live
-      deviceID:
-      - this
-    action: browser_mod.popup
-  - delay:
-      seconds: 10
-  - data:
-      deviceID:
-      - browser_mod_0b6a24d9_ba0dcfa6
-    action: browser_mod.close_popup
-  mode: single
 - id: doorbell_ring_popup
-  alias: Doorbell — Camera Popup on Ring
-  description: When the front-door doorbell is pressed, pop the live camera onto the tablets.
+  alias: Front Door — Camera Popup on approach or ring
+  description: >-
+    Pop the live camera onto the tablets on Ring motion (so it's already up as
+    someone approaches / by the time you look) and again on the doorbell ding.
   triggers:
+  - trigger: state
+    entity_id: event.front_door_motion
   - trigger: state
     entity_id: event.front_door_ding
   conditions:
-  # Ignore the state-restore that happens on HA restart — only react to real rings.
+  # Only react to real, recent events. event.* entities store the ISO timestamp
+  # of the last event; on HA restart they restore an OLD timestamp, so reject by
+  # age (>30s) — this still lets the first real event after a restart through.
   - condition: template
     value_template: >-
-      {{ trigger.from_state is not none
-         and trigger.from_state.state not in ['unknown', 'unavailable']
-         and trigger.to_state.state not in ['unknown', 'unavailable'] }}
+      {{ trigger.to_state is not none
+         and trigger.to_state.state not in ['unknown', 'unavailable']
+         and as_datetime(trigger.to_state.state) is not none
+         and (now() - as_datetime(trigger.to_state.state)).total_seconds() < 30 }}
   actions:
   - action: browser_mod.popup
     data:
-      browser_id:
-      - browser_mod_ab0fd561_71b7fcdf
-      - browser_mod_0b6a24d9_ba0dcfa6
+      # No browser_id → browser_mod broadcasts to ALL connected browsers (verified
+      # in service.py 2.7.0). Hardcoded IDs went stale whenever the kiosk's web
+      # storage was cleared and the popup then landed nowhere; "all" is robust.
       title: 🔔 Someone's at the front door
       timeout: 30000
       dismissable: true
@@ -65,7 +46,9 @@
       no_motion_wait: 120
 - id: pool_filter_schedule
   alias: Pool Filter Schedule
-  description: Run the pool filter (Outside Electrics) overnight, 22:00–06:00.
+  # REPOINTED 2026-07-01: the old L2 relay (0xc09b9efffe666ed6) is now the Front
+  # Door Light; the pool pump moved to the new with-neutral relay below.
+  description: Run the pool filter (Outside Elec, with-neutral relay) overnight, 22:00–06:00.
   triggers:
   - trigger: time
     at: '22:00:00'
@@ -82,12 +65,93 @@
       sequence:
       - action: switch.turn_on
         target:
-          entity_id: switch.0xc09b9efffe666ed6
+          entity_id: switch.0x00be44fffe3a0b30
     - conditions:
       - condition: trigger
         id: 'off'
       sequence:
       - action: switch.turn_off
         target:
-          entity_id: switch.0xc09b9efffe666ed6
+          entity_id: switch.0x00be44fffe3a0b30
+  mode: single
+- id: front_door_light_daytime_off
+  alias: Front Door Light — force off in daylight
+  description: >-
+    Anti-tamper: if the front-door light is switched on while the sun is well up
+    (elevation >= 5deg), turn it straight back off. Nobody needs it in daylight.
+  triggers:
+  - trigger: state
+    entity_id: switch.0xc09b9efffe666ed6
+    to: 'on'
+  conditions:
+  - condition: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    above: 5
+  actions:
+  - action: switch.turn_off
+    target:
+      entity_id: switch.0xc09b9efffe666ed6
+  mode: single
+- id: front_door_light_auto_dark
+  alias: Front Door Light — auto-on when dark (doorbell + motion)
+  description: >-
+    When it's dark/dusk (sun elevation < 5deg), a fresh doorbell ding or Ring
+    motion turns the front-door light on, then off after the last event
+    (ding = 3 min, motion = 2 min). mode:restart shares one timer so the two
+    triggers don't fight over the same light.
+  triggers:
+  - trigger: state
+    entity_id: event.front_door_ding
+    id: ding
+  - trigger: state
+    entity_id: event.front_door_motion
+    id: motion
+  conditions:
+  # Only real, recent events (event entities restore an old timestamp on restart).
+  - condition: template
+    value_template: >-
+      {{ trigger.to_state is not none
+         and trigger.to_state.state not in ['unknown', 'unavailable']
+         and as_datetime(trigger.to_state.state) is not none
+         and (now() - as_datetime(trigger.to_state.state)).total_seconds() < 30 }}
+  - condition: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    below: 5
+  actions:
+  - action: switch.turn_on
+    target:
+      entity_id: switch.0xc09b9efffe666ed6
+  - delay:
+      seconds: "{{ 180 if trigger.id == 'ding' else 120 }}"
+  - action: switch.turn_off
+    target:
+      entity_id: switch.0xc09b9efffe666ed6
+  mode: restart
+- id: bathroom_relay_keep_powered
+  alias: Bathroom — keep relay powered on motion
+  description: >-
+    The bathroom smart bulb sits behind the Bathroom Switch relay. If someone
+    flips the relay off, motion can't light the bulb. On motion, ensure the relay
+    is on so the bulb always has power (bulb power-on behaviour = on brings it up).
+  triggers:
+  - trigger: state
+    entity_id: binary_sensor.0xa4c1381dee848188_occupancy
+    to: 'on'
+  conditions:
+  - condition: state
+    entity_id: switch.0xe406bffffeac64b6
+    state: 'off'
+  actions:
+  # Relay was off (someone flipped the wall switch) — power it, give the bulb a
+  # second to boot, then explicitly light it (don't rely on power-on behaviour).
+  - action: switch.turn_on
+    target:
+      entity_id: switch.0xe406bffffeac64b6
+  - delay:
+      seconds: 1
+  - action: light.turn_on
+    target:
+      entity_id: light.0x847127fffe7f0dec
   mode: single

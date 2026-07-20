@@ -101,6 +101,12 @@ share; the matching private key stays secret on your Mac.)
 
 ## Part 2 — Log in & basic hardening (≈10 min)
 
+> **Shortcut:** there's a reusable **[`harden.sh`](./harden.sh)** in this folder that does
+> everything below *plus* fail2ban and an SSH lockdown — safely (it keeps root key-login,
+> won't disable password auth unless it sees a key, and leaves the exit-node forward policy
+> alone). On the VPS: `./harden.sh`, or `ALLOW_HTTP=true ./harden.sh` on the box that also
+> hosts a website. The manual steps below are the same thing spelled out.
+
 From your Mac's Terminal (swap in your real IP):
 
 ```bash

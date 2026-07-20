@@ -4,12 +4,17 @@ set -u
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 QUOTES_FILE="$SCRIPT_DIR/quotes.txt"
 
-# Fill these in after creating a new bot via @BotFather
-BOT_TOKEN="8178294552:AAHeOFiqXdEct3bN5kEuF9yIqgDXj6WIMwk"
-CHAT_ID="8588606286"
+# Secrets live in personal-scripts/.env (gitignored), never in this file.
+ENV_FILE="${SCRIPT_DIR}/../.env"
+if [ -f "$ENV_FILE" ]; then
+  set -a; . "$ENV_FILE"; set +a
+fi
+
+BOT_TOKEN="${PARENT_BOT_TOKEN:-}"
+CHAT_ID="${TELEGRAM_CHAT_ID:-}"
 
 if [ -z "$BOT_TOKEN" ] || [ -z "$CHAT_ID" ]; then
-  echo "BOT_TOKEN and CHAT_ID must be set in $0" >&2
+  echo "PARENT_BOT_TOKEN and TELEGRAM_CHAT_ID must be set in $ENV_FILE" >&2
   exit 1
 fi
 

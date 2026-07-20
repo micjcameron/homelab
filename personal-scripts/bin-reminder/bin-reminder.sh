@@ -7,29 +7,39 @@ case "$MODE" in
   *) echo "Usage: $0 today|tomorrow" >&2; exit 1 ;;
 esac
 
-# Telegram (same bot as parent-reminder)
-BOT_TOKEN="8759872914:AAEyloXPmudiBTHfKc-rVxTNKVuCloNqod0"
-CHAT_ID="8588606286"
+# Secrets live in personal-scripts/.env (gitignored), never in this file.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE="${SCRIPT_DIR}/../.env"
+if [ -f "$ENV_FILE" ]; then
+  set -a; . "$ENV_FILE"; set +a
+fi
+
+# Telegram
+BOT_TOKEN="${BIN_BOT_TOKEN:-}"
+CHAT_ID="${TELEGRAM_CHAT_ID:-}"
 
 # Home Assistant
 HA_URL="${HA_URL:-http://localhost:8123}"
-HA_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4YWQwNDcyZDJhMWE0YWRmOTBhNzc5ZjE3MjNiZjEzMCIsImlhdCI6MTc4MDkxNDU3OCwiZXhwIjoyMDk2Mjc0NTc4fQ.o9Qev4tBhNM5qovTWU4jFCpHb9LNzBnMUgkysEoD3Xo"
+HA_TOKEN="${HA_TOKEN:-}"
 CALENDAR_ENTITY="calendar.afvalbeheer_avri"
 
 if [ -z "$BOT_TOKEN" ] || [ -z "$CHAT_ID" ] || [ -z "$HA_TOKEN" ]; then
-  echo "BOT_TOKEN, CHAT_ID and HA_TOKEN must be set in $0" >&2
+  echo "BIN_BOT_TOKEN, TELEGRAM_CHAT_ID and HA_TOKEN must be set in $ENV_FILE" >&2
   exit 1
 fi
 
 case "$MODE" in
   today)
     START=$(date -d "today 00:00" -Iseconds)
-    END=$(date -d "tomorrow 00:00" -Iseconds)
+    # End at 23:59:59 of the same day, NOT next-day 00:00 — HA's calendar API
+    # treats the window end as inclusive, so next-day-midnight pulled in the
+    # following day's all-day event and made every reminder fire a day early.
+    END=$(date -d "today 23:59:59" -Iseconds)
     HEADING="🗑️ Bin day today"
     ;;
   tomorrow)
     START=$(date -d "tomorrow 00:00" -Iseconds)
-    END=$(date -d "tomorrow + 1 day 00:00" -Iseconds)
+    END=$(date -d "tomorrow 23:59:59" -Iseconds)
     HEADING="🗑️ Bin day tomorrow"
     ;;
 esac
