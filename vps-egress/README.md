@@ -36,6 +36,105 @@ capability is set up and costs nothing to keep.
 
 ---
 
+## How it actually works (the bit that's obvious now and gone in six months)
+
+Everything here — the VPN, the private SSH, the firewall rule — rests on **one** idea, so it's
+worth understanding once properly.
+
+### Every device gets a second address
+
+|  | Real address (public internet) | Tailnet address (private) |
+|---|---|---|
+| **Mac** | `31.20.166.148` | `100.64.80.18` |
+| **Box** | `37.27.38.196` | `100.66.213.19` |
+
+Nobody outside your tailnet can route to a `100.x` address. They aren't secret — they're
+simply meaningless anywhere else.
+
+### The trick is a fake network card
+
+Tailscale creates a software-only interface — `utun0` on the Mac, `tailscale0` on the box —
+and installs a routing rule:
+
+```
+100.66.213.19/32   →   utun0
+```
+
+That rule is the whole magic. The OS now believes `100.66.213.19` is reachable "through" that
+fake card. Check it any time with `route -n get 100.66.213.19` (Mac) or `ip -brief addr show
+tailscale0` (box).
+
+### What happens when you run `ssh root@100.66.213.19`
+
+1. SSH asks the OS to connect to `100.66.213.19` port 22.
+2. The routing table says `→ utun0`, so the packet goes to the fake card, not the Wi-Fi.
+3. `tailscaled` is on the other end of `utun0`. It receives a raw packet
+   *`100.64.80.18` → `100.66.213.19`:22*.
+4. **The lookup — and this is NOT DNS.** Tailscale holds a peer map from the coordination
+   server: `100.66.213.19` = public key `abc…` = currently at **`37.27.38.196:41641`**.
+5. It encrypts the whole packet — `100.x` addresses included — with WireGuard, using a key
+   only your Mac and that box can derive.
+6. It puts the encrypted blob inside an ordinary UDP packet:
+   *`31.20.166.148` → `37.27.38.196`, UDP 41641*.
+7. That crosses the normal internet. Your ISP and every router in between see only "a UDP
+   packet from a Dutch home to a Finnish server" — not the addresses inside, not that it's SSH.
+8. `tailscaled` on the box receives it on UDP 41641, verifies and decrypts it.
+9. Inside is the original packet: *`100.64.80.18` → `100.66.213.19`:22*.
+10. It writes that into `tailscale0`. To the box's kernel this is indistinguishable from a
+    packet off real hardware.
+11. `sshd` (listening on 22) gets the connection, seeing a client at `100.64.80.18` arriving
+    **on `tailscale0`**.
+
+### The one idea to remember: an envelope inside an envelope
+
+| | From → To | Who can see it |
+|---|---|---|
+| **Outer** | `31.20.166.148` → `37.27.38.196`, UDP 41641 | the whole internet — contents encrypted |
+| **Inner** | `100.64.80.18` → `100.66.213.19`, TCP 22 | only your two machines |
+
+**The `100.x` addresses never travel the internet.** They exist only at the two ends, sealed
+inside the encrypted payload. That is why no one else can route to them — there is nothing
+out there to route.
+
+> **This is exactly why closing public SSH works.** Step 11 shows the packet genuinely
+> arriving on `tailscale0`, so `ufw allow in on tailscale0 port 22` matches it. A bot's packet
+> arrives on `eth0` and matches nothing. Same port, same `sshd`, different interface.
+
+### How they find each other through a home router
+
+Your Mac sits behind NAT with no public address, so how does the box reach it? **Hole
+punching.** The Mac sends a packet outward, which makes your router remember "replies to port
+41641 belong to the Mac". The box does the same. Both push outward at once and a two-way path
+opens through both routers. That is what `tailscale status` means by
+`direct 31.20.166.148:41641` — the hole your router is holding open.
+
+The box is the easy half: public IP, no NAT, always directly reachable. If hole punching ever
+failed, Tailscale would relay through its **DERP** servers instead — still end-to-end
+encrypted, just slower. You should always get `direct`.
+
+### And the name?
+
+There's a third route on your Mac:
+
+```
+100.100.100.100/32   →   utun0
+```
+
+That's Tailscale's internal DNS (**MagicDNS**). `ssh root@camcosolutions-vps1` asks
+`100.100.100.100`, gets back `100.66.213.19`, and then all eleven steps run as above.
+
+So there are **two** lookups, and it's worth not confusing them:
+- **DNS** turns a *name* into a `100.x` address.
+- **The peer map** turns that `100.x` address into a real internet address.
+
+### Where the exit node fits
+
+Everything above is about **reaching the box**. The exit node is the opposite direction —
+pushing your *general internet traffic out through* it. Same tunnel, opposite way, separate
+toggle. Which is why SSH works perfectly well with the exit node off.
+
+---
+
 ## ⚠️ This box is NOT a spare — read this first
 
 Unlike the old STRATO box, which did nothing but egress, this machine is your
