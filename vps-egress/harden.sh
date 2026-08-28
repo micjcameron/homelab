@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 # harden.sh — reusable baseline hardening for a fresh Ubuntu/Debian VPS.
 #
-# Safe to run on the egress box (STRATO, 217.160.75.214) AND on any other VPS.
+# Safe to run on the egress box (Hetzner, 37.27.38.196) AND on any other VPS.
 # It is deliberately conservative so it can't lock you out or break the exit node:
 #   • Keeps ROOT key login working (only blocks root *password* login).
 #   • Only disables password auth if it can see an SSH key first (else it aborts).
-#   • Touches only the firewall's INCOMING policy — never the FORWARD/routed policy,
-#     so the Tailscale exit-node forwarding on this box keeps working.
+#   • Sets the firewall's FORWARD policy explicitly when ALLOW_ROUTED=true, so enabling
+#     ufw on a box that never had it cannot silently kill Tailscale exit-node traffic.
 #   • Writes SSH settings to a drop-in file, never mangling the main sshd_config.
+#
+# ⚠️  ufw does NOT filter ports that Docker publishes — Docker writes its own iptables
+#     rules (DOCKER-USER) that bypass ufw entirely. On this box that is harmless because
+#     the only published port is bound to 127.0.0.1. If you ever publish a container port
+#     as 0.0.0.0, ufw will NOT protect it; bind it to 127.0.0.1 or use DOCKER-USER rules.
 #
 # What it does:
 #   1. apt update/upgrade
@@ -18,13 +23,16 @@
 #
 # Usage (run as root on the VPS):
 #   ./harden.sh                       # baseline, SSH only
-#   ALLOW_HTTP=true ./harden.sh       # also open 80/443 (use this on the web-host box)
+#   ALLOW_ROUTED=true ./harden.sh     # baseline + allow forwarding (the EGRESS box)
+#   ALLOW_HTTP=true ./harden.sh       # also open 80/443 (only if something listens on the
+#                                     #   HOST — not needed when Caddy sits behind cloudflared)
 #   EXTRA_UDP_PORTS="51820" ALLOW_HTTP=true ./harden.sh   # + a WireGuard port
 #   FORCE=1 ./harden.sh               # skip the confirmation prompt
 #
 # Config (all overridable via env):
 SSH_PORT="${SSH_PORT:-22}"                       # leave at 22 unless you really moved it
 ALLOW_HTTP="${ALLOW_HTTP:-false}"                # open 80/443 (true on the site host)
+ALLOW_ROUTED="${ALLOW_ROUTED:-false}"            # allow forwarded traffic — REQUIRED on the exit node
 EXTRA_TCP_PORTS="${EXTRA_TCP_PORTS:-}"           # space-separated, e.g. "8080 2222"
 EXTRA_UDP_PORTS="${EXTRA_UDP_PORTS:-}"           # space-separated, e.g. "51820"
 DISABLE_PASSWORD_AUTH="${DISABLE_PASSWORD_AUTH:-true}"
@@ -69,7 +77,7 @@ About to harden this host:
   Extra TCP ports ..... ${EXTRA_TCP_PORTS:-none}
   Extra UDP ports ..... ${EXTRA_UDP_PORTS:-none}
   Disable password SSH  ${DISABLE_PASSWORD_AUTH}   (root stays key-only either way)
-  Firewall FORWARD policy is left untouched (exit-node safe).
+  Allow routed/forward  ${ALLOW_ROUTED}   (must be true on the Tailscale exit node)
 SUMMARY
 
 if [ "$FORCE" != "1" ]; then
@@ -89,11 +97,20 @@ apt-get install -y unattended-upgrades
 dpkg-reconfigure -f noninteractive unattended-upgrades
 
 # ---- 3. firewall ----------------------------------------------------------
-log "Configuring ufw (incoming only — forward policy left as-is)"
+log "Configuring ufw"
 apt-get install -y ufw
 ufw default deny incoming
 ufw default allow outgoing
+
+# Allow SSH BEFORE enabling, or `ufw --force enable` drops this very session.
 ufw allow "${SSH_PORT}/tcp" comment 'SSH'
+
+# The exit node forwards traffic that is neither to nor from this host, so it is governed
+# by the FORWARD chain. ufw ships DEFAULT_FORWARD_POLICY="DROP"; on a box where ufw has
+# never been enabled, doing nothing here means the exit node breaks the moment ufw starts.
+if [ "$ALLOW_ROUTED" = "true" ]; then
+  ufw default allow routed
+fi
 
 if [ "$ALLOW_HTTP" = "true" ]; then
   ufw allow 80/tcp  comment 'HTTP'
