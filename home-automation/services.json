@@ -37,11 +37,6 @@
       "name": "cloudflared",
       "enabled": true,
       "order": 80
-    },
-    {
-      "name": "camco-invoicer",
-      "enabled": true,
-      "order": 90
     }
   ]
 }
